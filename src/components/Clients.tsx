@@ -21,7 +21,7 @@ const Clients = () => {
             <div className="marquee-container">
                 <div className="marquee-content">
                     {marqueeLogos.map((logo, index) => (
-                        <img key={index} src={logo} alt="Client Logo" className="client-logo" />
+                        <img key={index} src={logo} alt="Client Logo" className="client-logo" loading='lazy'/>
                     ))}
                 </div>
             </div>

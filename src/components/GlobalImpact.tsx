@@ -22,6 +22,7 @@ const GlobalImpact = () => {
                                 src="https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg"
                                 alt="World Map"
                                 className="world-map-img"
+                                loading='lazy'
                             />
 
                             {/* Map Dots */}

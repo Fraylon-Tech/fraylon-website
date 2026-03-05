@@ -46,10 +46,10 @@ const Careers = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <div className="career-card-1">
-                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" alt="Team Brainstorming" className="career-img" />
+                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" alt="Team Brainstorming" className="career-img" loading='lazy'/>
                     </div>
                     <div className="career-card-2">
-                        <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg" alt="Coding Setup" className="career-img" />
+                        <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg" alt="Coding Setup" className="career-img" loading='lazy'/>
                     </div>
                 </motion.div>
 

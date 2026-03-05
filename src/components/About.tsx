@@ -53,6 +53,7 @@ const About = () => {
                         src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg"
                         alt="Corporate Meeting"
                         className="about-img"
+                        loading='lazy'
                     />
                 </motion.div>
             </div>

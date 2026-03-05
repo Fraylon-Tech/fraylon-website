@@ -50,7 +50,7 @@ const About = () => {
                 >
                     <div className="about-accent-box"></div>
                     <img
-                        src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg"
+                        src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         alt="Corporate Meeting"
                         className="about-img"
                         loading='lazy'

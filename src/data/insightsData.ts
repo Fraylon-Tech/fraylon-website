@@ -37,7 +37,7 @@ export const insightsData = [
         author: 'Dr. Aditi Rao',
         authorRole: 'Chief AI Officer',
         authorBio: 'Dr. Aditi Rao leads Fraylon’s AI division, focusing on large language models and autonomous agent architectures. She was previously a researcher at DeepMind.',
-        authorImage: 'https://randomuser.me/api/portraits/women/44.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/women/44.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Oct 12, 2025',
         readTime: '8 min read'
     },
@@ -62,7 +62,7 @@ export const insightsData = [
         author: 'Dr. Aditi Rao',
         authorRole: 'Chief AI Officer',
         authorBio: 'Dr. Aditi Rao leads Fraylon’s AI division, focusing on large language models and autonomous agent architectures. She was previously a researcher at DeepMind.',
-        authorImage: 'https://randomuser.me/api/portraits/women/44.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/women/44.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Dec 05, 2025',
         readTime: '6 min read'
     },
@@ -85,7 +85,7 @@ export const insightsData = [
         author: 'Vikram Malhotra',
         authorRole: 'VP of Engineering',
         authorBio: 'Vikram specializes in enterprise architecture and legacy system modernization. He helps organizations navigate complex digital transformations.',
-        authorImage: 'https://randomuser.me/api/portraits/men/86.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/men/86.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Jan 15, 2026',
         readTime: '5 min read'
     },
@@ -122,7 +122,7 @@ export const insightsData = [
         author: 'Karthik Iyer',
         authorRole: 'Head of Cloud Infrastructure',
         authorBio: 'Karthik has over 15 years of experience in cloud architecture and specializes in sustainable computing practices for enterprise clients.',
-        authorImage: 'https://randomuser.me/api/portraits/men/32.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/men/32.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Sep 28, 2025',
         readTime: '6 min read'
     },
@@ -145,7 +145,7 @@ export const insightsData = [
         author: 'Ananya Singh',
         authorRole: 'Head of Data Science',
         authorBio: 'Ananya leads the data science team at Fraylon, delivering predictive insights to clients in logistics, retail, and manufacturing.',
-        authorImage: 'https://randomuser.me/api/portraits/women/65.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/women/65.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Nov 12, 2025',
         readTime: '7 min read'
     },
@@ -166,7 +166,7 @@ export const insightsData = [
         author: 'Karthik Iyer',
         authorRole: 'Head of Cloud Infrastructure',
         authorBio: 'Karthik has over 15 years of experience in cloud architecture and specializes in sustainable computing practices for enterprise clients.',
-        authorImage: 'https://randomuser.me/api/portraits/men/32.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/men/32.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Jan 02, 2026',
         readTime: '5 min read'
     },
@@ -201,7 +201,7 @@ export const insightsData = [
         author: 'Sneha Kapoor',
         authorRole: 'Chief Security Officer',
         authorBio: 'Sneha is a cybersecurity veteran with a focus on zero-trust frameworks and threat intelligence. She advises Fortune 500 companies on security posture.',
-        authorImage: 'https://randomuser.me/api/portraits/women/68.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/women/68.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Nov 05, 2025',
         readTime: '7 min read'
     },
@@ -224,7 +224,7 @@ export const insightsData = [
         author: 'Sneha Kapoor',
         authorRole: 'Chief Security Officer',
         authorBio: 'Sneha is a cybersecurity veteran with a focus on zero-trust frameworks and threat intelligence. She advises Fortune 500 companies on security posture.',
-        authorImage: 'https://randomuser.me/api/portraits/women/68.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/women/68.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Feb 10, 2026',
         readTime: '6 min read'
     },
@@ -245,7 +245,7 @@ export const insightsData = [
         author: 'Sneha Kapoor',
         authorRole: 'Chief Security Officer',
         authorBio: 'Sneha is a cybersecurity veteran with a focus on zero-trust frameworks and threat intelligence. She advises Fortune 500 companies on security posture.',
-        authorImage: 'https://randomuser.me/api/portraits/women/68.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/women/68.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Dec 18, 2025',
         readTime: '5 min read'
     },
@@ -276,7 +276,7 @@ export const insightsData = [
         author: 'Vikram Malhotra',
         authorRole: 'VP of Engineering',
         authorBio: 'Vikram specializes in enterprise architecture and legacy system modernization. He helps organizations navigate complex digital transformations.',
-        authorImage: 'https://randomuser.me/api/portraits/men/86.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/men/86.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Aug 15, 2025',
         readTime: '5 min read'
     },
@@ -297,7 +297,7 @@ export const insightsData = [
         author: 'Aryan Deshmukh',
         authorRole: 'Workplace Strategy Director',
         authorBio: 'Aryan helps organizations build high-performing distributed teams through the strategic application of culture and technology.',
-        authorImage: 'https://randomuser.me/api/portraits/men/41.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/men/41.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Oct 30, 2025',
         readTime: '5 min read'
     },
@@ -318,7 +318,7 @@ export const insightsData = [
         author: 'Karthik Iyer',
         authorRole: 'Head of Cloud Infrastructure',
         authorBio: 'Karthik has over 15 years of experience in cloud architecture and specializes in sustainable computing practices for enterprise clients.',
-        authorImage: 'https://randomuser.me/api/portraits/men/32.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/men/32.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Jan 22, 2026',
         readTime: '6 min read'
     },
@@ -347,7 +347,7 @@ export const insightsData = [
         author: 'Ananya Singh',
         authorRole: 'Head of Data Science',
         authorBio: 'Ananya leads the data science team at Fraylon, delivering predictive insights to clients in logistics, retail, and manufacturing.',
-        authorImage: 'https://randomuser.me/api/portraits/women/65.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/women/65.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Dec 01, 2025',
         readTime: '6 min read'
     },
@@ -368,7 +368,7 @@ export const insightsData = [
         author: 'Ananya Singh',
         authorRole: 'Head of Data Science',
         authorBio: 'Ananya leads the data science team at Fraylon, delivering predictive insights to clients in logistics, retail, and manufacturing.',
-        authorImage: 'https://randomuser.me/api/portraits/women/65.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/women/65.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Jan 08, 2026',
         readTime: '6 min read'
     },
@@ -389,7 +389,7 @@ export const insightsData = [
         author: 'Ananya Singh',
         authorRole: 'Head of Data Science',
         authorBio: 'Ananya leads the data science team at Fraylon, delivering predictive insights to clients in logistics, retail, and manufacturing.',
-        authorImage: 'https://randomuser.me/api/portraits/women/65.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/women/65.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Feb 14, 2026',
         readTime: '5 min read'
     },
@@ -418,7 +418,7 @@ export const insightsData = [
         author: 'Aryan Deshmukh',
         authorRole: 'Workplace Strategy Director',
         authorBio: 'Aryan helps organizations build high-performing distributed teams through the strategic application of culture and technology.',
-        authorImage: 'https://randomuser.me/api/portraits/men/41.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/men/41.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Jan 10, 2026',
         readTime: '5 min read'
     },
@@ -439,7 +439,7 @@ export const insightsData = [
         author: 'Aryan Deshmukh',
         authorRole: 'Workplace Strategy Director',
         authorBio: 'Aryan helps organizations build high-performing distributed teams through the strategic application of culture and technology.',
-        authorImage: 'https://randomuser.me/api/portraits/men/41.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/men/41.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Dec 12, 2025',
         readTime: '4 min read'
     },
@@ -460,7 +460,7 @@ export const insightsData = [
         author: 'Aryan Deshmukh',
         authorRole: 'Workplace Strategy Director',
         authorBio: 'Aryan helps organizations build high-performing distributed teams through the strategic application of culture and technology.',
-        authorImage: 'https://randomuser.me/api/portraits/men/41.jpg',
+        authorImage: 'https://randomuser.me/api/portraits/men/41.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         date: 'Nov 20, 2025',
         readTime: '5 min read'
     }

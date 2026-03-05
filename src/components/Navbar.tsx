@@ -220,7 +220,7 @@ const Navbar = () => {
               </div>
               {/* Featured Card */}
               <div className="mega-featured">
-                <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg" alt="Featured Solution" loading='lazy'/>
+                <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Featured Solution" loading='lazy'/>
                 <div className="mega-featured-text">
                   <h5>Agentic AI is Here</h5>
                   <p>Discover our new autonomous enterprise platform.</p>

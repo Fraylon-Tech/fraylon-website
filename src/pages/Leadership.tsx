@@ -5,42 +5,48 @@ import alexFraylonImg from '../assets/images/alex-fraylon.jpg';
 import vigneswarImg from '../assets/images/vigneswar-nalluri.jpg';
 
 const leaders = [
-    {
-        name: "Ch. Ram Teja",
-        role: "Chief Executive Officer",
-        image: alexFraylonImg,
-        bio: "Visionary leader with 20+ years of experience in driving global digital transformation and enterprise growth."
-    },
-    {
-        name: "Vigneswar Nalluri",
-        role: "Chief Technology Officer",
-        image: vigneswarImg,
-        bio: "Pioneering AI architect focused on building scalable, future-ready infrastructure for the modern enterprise."
-    },
-    {
-        name: "Michael Ross",
-        role: "Chief Operating Officer",
-        image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800",
-        bio: "Expert in operational strategy and supply chain optimization, ensuring seamless delivery across global markets."
-    },
-    {
-        name: "Priya Patel",
-        role: "Head of Product",
-        image: "https://images.pexels.com/photos/1181682/pexels-photo-1181682.jpeg?auto=compress&cs=tinysrgb&w=800",
-        bio: "Design-led product strategist dedicated to creating intuitive user experiences that solve complex business problems."
-    },
-    {
-        name: "David Kim",
-        role: "VP of Engineering",
-        image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=800",
-        bio: "Systems engineering veteran specialized in high-performance computing and cybersecurity protocols."
-    },
-    {
-        name: "Elena Rodriguez",
-        role: "Chief Marketing Officer",
-        image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=800",
-        bio: "Strategic storyteller building global brand equity through data-driven insights and creative innovation."
-    }
+  {
+    name: "Ram Teja Ch",
+    role: "Chief Executive Officer (CEO)",
+    image: alexFraylonImg,
+    bio: "Founder and visionary leader driving Fraylon's mission to build innovative digital solutions and empower global businesses through technology and strategic leadership."
+  },
+  {
+    name: "Vigneswar Nalluri",
+    role: "Chief Technology Officer (CTO)",
+    image: vigneswarImg,
+    bio: "Technology leader responsible for shaping Fraylon's technical strategy, leading engineering teams, and building scalable and future-ready digital platforms."
+  },
+  {
+    name: "Aditi Sen",
+    role: "Strategy & Innovation Lead",
+    image: "https://images.pexels.com/photos/1181682/pexels-photo-1181682.jpeg",
+    bio: "Focused on strategic growth initiatives and innovation, helping Fraylon expand its impact through creative problem solving and forward-thinking solutions."
+  },
+  {
+    name: "Nikhil Balaji Nandhagiri",
+    role: "Chief Marketing Officer (CMO)",
+    image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+    bio: "Leads Fraylon's global marketing strategy, brand positioning, and growth initiatives while building strong relationships with partners and communities."
+  },
+  {
+    name: "Lavanya Bojja",
+    role: "President",
+    image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg",
+    bio: "Oversees organizational operations and strategic initiatives, ensuring smooth coordination across teams and driving the company toward long-term success."
+  },
+  {
+    name: "Mahitha Bhatula",
+    role: "Co-President",
+    image: "https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg",
+    bio: "Supports executive leadership in managing operations, strengthening team collaboration, and ensuring the execution of Fraylon's strategic goals."
+  },
+  {
+    name: "Yuvraj Dudukuru",
+    role: "Chief Operating Officer (COO)",
+    image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+    bio: "Responsible for operational excellence at Fraylon, managing business processes, project delivery, and organizational efficiency."
+  }
 ];
 
 const Leadership = () => {

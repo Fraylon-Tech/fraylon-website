@@ -204,3 +204,43 @@
     /* No movement as requested */
     box-shadow: 0 15px 30px -10px rgba(0, 191, 179, 0.3);
 }
+
+/* ── Field-level error state ───────────────────────────────────── */
+.form-input--error {
+    border-color: #e5534b !important;
+    background: rgba(229, 83, 75, 0.04) !important;
+}
+
+.form-input--error:focus {
+    border-color: #e5534b !important;
+    background: rgba(229, 83, 75, 0.06) !important;
+}
+
+.form-error-text {
+    margin-top: 6px;
+    font-size: 0.82rem;
+    color: #e5534b;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* ── API error banner ──────────────────────────────────────────── */
+.form-api-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 18px;
+    background: rgba(229, 83, 75, 0.08);
+    border: 1px solid rgba(229, 83, 75, 0.3);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #c0392b;
+    line-height: 1.5;
+}
+
+.form-api-error-icon {
+    flex-shrink: 0;
+    font-size: 1rem;
+    margin-top: 2px;
+    color: #e5534b;
+}

@@ -1,25 +1,29 @@
 /* Footer.css */
 .footer {
-    background: var(--bg-dark-surface);
-    color: var(--text-main);
-    padding: 80px 60px 30px;
+    background: linear-gradient(to bottom, #0f172a, #0b1120);
+    color: #e2e8f0;
+    padding: 90px 60px 40px;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     font-size: 0.95rem;
 }
 
 .footer-top {
     display: grid;
-    /* Brand (1.4fr), Services (1.1fr), Solutions (1fr), Industries (1fr), Company (0.8fr) */
-    grid-template-columns: 1.4fr 1.1fr 1fr 1fr 0.8fr;
-    gap: 40px;
-    margin-bottom: 70px;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+    max-width: 1400px;
+    gap: 70px;
+    margin: auto;
 }
 
 /* --- Brand Column --- */
-.footer-brand-col {
+.footer-brand-col h3 {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    gap: 32px;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
 }
 
 .footer-brand {
@@ -30,16 +34,23 @@
 }
 
 .footer-logo-icon {
-    width: 6px;
+    width: 9px;
+    color: var(--color-primary);
     height: 28px;
-    background: var(--color-primary);
+    background: var(--text-secondary);
     transform: skewX(-15deg);
 }
+.footer-tagline {
+    color: white;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 260px;
+}
 
-.footer-brand h2 {
+.footer-brand h3 {
     font-family: 'Inter', sans-serif;
     font-size: 1.8rem;
-    color: var(--text-main);
+    color: white;
     letter-spacing: -0.03em;
     margin: 0;
     /* Remove default margin as flex handles gap */
@@ -61,8 +72,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(0, 0, 0, 0.6);
-    transition: color 0.3s ease;
+    color: rgba(233, 225, 225, 0.917);
+    transition: transform 0.3s ease, color 0.3s ease;
     font-size: 1.4rem;
     /* Slightly larger icons since the box is gone */
     text-decoration: none;
@@ -74,31 +85,41 @@
 
 .social-icon:hover {
     color: var(--color-primary);
+    transform: translateY(-3px);
 }
 
 /* --- Newsletter Section (inside Brand Col) --- */
 .newsletter-section {
     margin-top: 10px;
-    padding-top: 25px;
+    padding-top: 10px;
+    max-width: 260px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.newsletter-section h5 {
+.newsletter-section h3 {
     font-size: 0.9rem;
     margin-bottom: 15px;
     font-weight: 600;
-    color: var(--text-main);
+    color: #fff;
 }
 
 .newsletter-form {
     display: flex;
-    gap: 8px;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.newsletter-form:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.15);
 }
 
 .newsletter-input {
     flex: 1;
     background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: none;
     padding: 10px 14px;
     color: var(--text-main);
     border-radius: 4px;
@@ -112,10 +133,17 @@
 }
 
 .subscribe-btn {
-    padding: 10px 18px;
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
+    background: var(--color-primary);
+    height: 38px;
+    padding: 0 22px;
+    color:#fff;
+    border: none;
+    cursor: pointer;
     font-weight: 600;
+    transition: background 0.3s ease;
+}
+.subscribe-btn:hover {
+    background: #00796b;
 }
 
 /* --- Contact Info in Brand Column --- */
@@ -123,31 +151,33 @@
     margin-top: 25px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 25px;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    font-size: 14px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 .footer-contact-info-brand a {
-    color: var(--text-main);
+    color: #fff;
     text-decoration: none;
     transition: color 0.2s;
 }
 
 .footer-contact-info-brand a:hover {
-    color: var(--text-main);
+   color: var(--color-primary);
     text-decoration: underline;
 }
 
 /* --- Navigation Columns --- */
-.footer-nav-col h4 {
+.footer-nav-col h3 {
     font-size: 0.9rem;
-    color: var(--text-main);
-    margin-bottom: 25px;
+    color: #9ca3af;
+    margin-bottom: 18px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 1px;
+    font-size:13px;
     font-weight: 600;
 }
 
@@ -155,22 +185,41 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    color: #fff;
 }
 
 .footer-links li {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .footer-links a {
-    color: var(--text-secondary);
+    color: var(--color-primary);
     font-size: 0.9rem;
-    transition: all 0.2s;
+    transition: all 0.25s ease;
     text-decoration: none;
     display: inline-block;
+    position: relative;
+}
+.footer-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
 }
 
 .footer-links a:hover {
     text-decoration: underline;
+    color: rgb(246, 249, 249);
+    transform: translateX(3px);
+}
+.footer-links a:hover::after {
+    width: 100%;
 }
 
 /* --- Footer Bottom --- */
@@ -223,8 +272,14 @@
 
     .footer-bottom {
         flex-direction: column;
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px;
         gap: 20px;
         text-align: center;
+        max-width: 1400px;
+        margin: auto;
+
     }
 
     .footer-bottom-links {

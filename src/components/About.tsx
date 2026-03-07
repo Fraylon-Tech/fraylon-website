@@ -1,7 +1,13 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { FaArrowRight } from 'react-icons/fa';
-import './About.css';
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
+import "./About.css";
+
+const stats = [
+  { number: "50+", label: "Projects Delivered" },
+  { number: "15+", label: "Global Clients" },
+  { number: "20+", label: "Tech Experts" },
+];
 
 const About = () => {
     return (

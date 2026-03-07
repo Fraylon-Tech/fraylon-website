@@ -1,4 +1,4 @@
-import { FaLinkedin, FaTwitter, FaYoutube, FaFacebook } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
@@ -17,30 +17,28 @@ const Footer = () => {
                 <div className="footer-brand-col">
                     <div className="footer-brand">
                         <div className="footer-logo-icon" />
-                        <h2>FRAYLON</h2>
-                    </div>
-                    <div className="social-links">
-                        <a href="#" className="social-icon" aria-label="LinkedIn"><FaLinkedin /></a>
-                        <a href="#" className="social-icon" aria-label="Twitter"><FaTwitter /></a>
-                        <a href="#" className="social-icon" aria-label="YouTube"><FaYoutube /></a>
-                        <a href="#" className="social-icon" aria-label="Facebook"><FaFacebook /></a>
+                        <h3>FRAYLON</h3>
+                        <div className="footer-tagline">Engineering the Future. Delivering Measurable Impact.</div>
                     </div>
                     <div className="newsletter-section">
-                        <h5>Stay Informed</h5>
+                        <h3>Get Industry Insights</h3>
+                        <div>Monthly strategies on AI, Cloud & Digital Transformation</div>
                         <form className="newsletter-form" onSubmit={handleSubscribe}>
-                            <input type="email" placeholder="Enter your email" className="newsletter-input" />
-                            <button className="btn btn-primary subscribe-btn">Join</button>
+                            <input type="email" placeholder="Enter your email" className="newsletter-input"
+                            aria-label="Email address" />
+                            <button type="submit" className="subscribe-btn" aria-label="Subscribe to newsletter">Join</button>
                         </form>
                     </div>
                     <div className="footer-contact-info-brand">
                         <p>Hyderabad, Telangana, India, 500001</p>
                         <p><a href="mailto:contact@fraylontech.com">contact@fraylontech.com</a></p>
                         <p><a href="tel:+919381617904">+91 93816 17904</a></p>
+                        <p className="footer-certification">ISO 27001 Compliant | GDPR Ready</p>
                     </div>
                 </div>
 
                 <div className="footer-nav-col">
-                    <h4>Services</h4>
+                    <h3>Services</h3>
                     <ul className="footer-links">
                         <li><Link to="/services/no-code">No Code Development</Link></li>
                         <li><Link to="/services/custom-dev">Custom Development</Link></li>
@@ -53,7 +51,7 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-nav-col">
-                    <h4>Solutions</h4>
+                    <h3>Solutions</h3>
                     <ul className="footer-links">
                         <li><Link to="/services/it-solutions">IT Solutions</Link></li>
                         <li><Link to="/solutions/cloud">Cloud Transformation</Link></li>
@@ -64,7 +62,7 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-nav-col">
-                    <h4>Industries</h4>
+                    <h3>Industries</h3>
                     <ul className="footer-links">
                         <li><Link to="/ind/banking">Banking & Finance</Link></li>
                         <li><Link to="/ind/health">Healthcare</Link></li>
@@ -76,7 +74,7 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-nav-col">
-                    <h4>Company</h4>
+                    <h3>Company</h3>
                     <ul className="footer-links">
                         <li><Link to="/about">About Us</Link></li>
                         <li><Link to="/leadership">Leadership</Link></li>
@@ -87,7 +85,7 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-
+            
             <div className="footer-bottom">
                 <div className="copyright">
                     <p>&copy; {currentYear} Fraylon Technologies. All rights reserved.</p>
@@ -98,6 +96,11 @@ const Footer = () => {
                     <Link to="/sitemap" className="footer-bottom-link">Sitemap</Link>
                     <Link to="/cookie-settings" className="footer-bottom-link">Cookie Settings</Link>
                 </div>
+                 <div className="social-links">
+                        <a href="https://www.linkedin.com/company/fraylontechnologies" className="social-icon" aria-label="LinkedIn"><FaLinkedin /></a>
+                        <a href="https://x.com/FraylonT53985" className="social-icon" aria-label="Twitter"><FaTwitter /></a>
+                        <a href="https://www.instagram.com/fraylontechnologies/" className="social-icon" aria-label="Instagram"><FaInstagram /></a>
+                    </div> 
             </div>
         </footer>
     );

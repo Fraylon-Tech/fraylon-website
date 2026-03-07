@@ -118,7 +118,7 @@ function App() {
   return (
     <>
       <SmoothScroll />
-      <div className="App">
+      <div className="App overflow-x-hidden w-full">
         <Navbar />
         <AnimatePresence mode="wait">
           <motion.div

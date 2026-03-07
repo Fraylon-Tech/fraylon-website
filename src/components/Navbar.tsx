@@ -22,6 +22,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileActivePanel, setMobileActivePanel] = useState<string>('main');
   const [mobileSubExpanded, setMobileSubExpanded] = useState<string | null>(null);
+  const [panelHistory, setPanelHistory] = useState<string[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,12 +56,14 @@ const Navbar = () => {
   };
 
   const closeMenu = () => {
-    setActiveMenu(null);
-    setMobileMenuOpen(false);
-    setTimeout(() => {
-      setMobileActivePanel('main');
-      setMobileSubExpanded(null);
-    }, 300);
+  setActiveMenu(null);
+  setMobileMenuOpen(false);
+
+  setTimeout(() => {
+    setMobileActivePanel('main');
+    setMobileSubExpanded(null);
+    setPanelHistory([]);   // reset navigation history
+  }, 300);
   };
 
   const toggleMobileMenu = () => {
@@ -87,6 +90,19 @@ const Navbar = () => {
       </div>
     );
   };
+const menuContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.07
+    }
+  }
+};
+
+const menuItem = {
+  hidden: { opacity: 0, y: 15 },
+  show: { opacity: 1, y: 0 }
+};
 
   return (
     <motion.nav
@@ -95,10 +111,14 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
-      <Link to="/" className="logo" onClick={closeMenu}>
-        <div className="logo-icon" />
-        FRAYLON
-      </Link>
+      <Link
+      to="/"
+      className={`logo ${mobileMenuOpen ? "logo-hidden" : ""}`}
+      onClick={closeMenu}
+    >
+      <div className="logo-icon" />
+      FRAYLON
+    </Link>
 
       <div className="nav-links desktop-only">
 
@@ -108,67 +128,163 @@ const Navbar = () => {
           onMouseEnter={() => handleMouseEnter('services')}
           onMouseLeave={handleMouseLeave}
         >
-          <span className="nav-link" style={activeMenu === 'services' ? { textDecoration: 'underline', textUnderlineOffset: '4px', textDecorationColor: 'var(--color-primary)' } : {}}>Services</span>
+          <span className={`nav-link ${activeMenu === 'services' ? 'active' : ''}`}>Services</span>
           <div className={`mega-menu ${activeMenu === 'services' ? 'visible' : ''}`} onClick={closeMenu} data-lenis-prevent>
             <div className="mega-content-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
 
               {/* Service Column 1 */}
               <div className="mega-col">
                 <h4>No Code Development</h4>
-                <Link to="/services/wordpress"><FaWordpress /> WordPress Development</Link>
-                <Link to="/services/webflow"><SiWebflow /> Webflow Development</Link>
-                <Link to="/services/wix"><FaWix /> Wix Development</Link>
-                <Link to="/services/shopify"><FaShopify /> Shopify Development</Link>
-                <Link to="/services/magento"><FaMagento /> Magento Development</Link>
-                <Link to="/services/bubble"><FaComment /> Bubble.io Development</Link>
-                <Link to="/services/framer"><SiFramer /> Framer Development</Link>
-                <Link to="/services/dora"><FaPaintBrush /> Dora Development</Link>
-                <Link to="/services/studio-ai"><FaRobot /> Studio AI Development</Link>
+
+                <Link to="/services/wordpress">
+                  <FaWordpress /> <span>WordPress Development</span>
+                </Link>
+
+                <Link to="/services/webflow">
+                  <SiWebflow /> <span>Webflow Development</span>
+                </Link>
+
+                <Link to="/services/wix">
+                  <FaWix /> <span>Wix Development</span>
+                </Link>
+
+                <Link to="/services/shopify">
+                  <FaShopify /> <span>Shopify Development</span>
+                </Link>
+
+                <Link to="/services/magento">
+                  <FaMagento /> <span>Magento Development</span>
+                </Link>
+
+                <Link to="/services/bubble">
+                  <FaComment /> <span>Bubble.io Development</span>
+                </Link>
+
+                <Link to="/services/framer">
+                  <SiFramer /> <span>Framer Development</span>
+                </Link>
+
+                <Link to="/services/dora">
+                  <FaPaintBrush /> <span>Dora Development</span>
+                </Link>
+
+                <Link to="/services/studio-ai">
+                  <FaRobot /> <span>Studio AI Development</span>
+                </Link>
 
                 <h4 style={{ marginTop: '20px' }}>IT Solutions</h4>
-                <Link to="/services/digital-transformation"><FaCloud /> Digital Transformation</Link>
-                <Link to="/services/staff-augmentation"><FaUserFriends /> IT Staff Augmentation</Link>
-                <Link to="/services/tech-consulting"><FaLightbulb /> Technology Consulting</Link>
-                <Link to="/services/maintenance"><FaTools /> Maintenance & Support</Link>
+
+                <Link to="/services/digital-transformation">
+                  <FaCloud /> <span>Digital Transformation</span>
+                </Link>
+
+                <Link to="/services/staff-augmentation">
+                  <FaUserFriends /> <span>IT Staff Augmentation</span>
+                </Link>
+
+                <Link to="/services/tech-consulting">
+                  <FaLightbulb /> <span>Technology Consulting</span>
+                </Link>
+
+                <Link to="/services/maintenance">
+                  <FaTools /> <span>Maintenance & Support</span>
+                </Link>
               </div>
+
 
               {/* Service Column 2 */}
               <div className="mega-col">
                 <h4>Custom Development</h4>
-                <Link to="/services/software-dev"><FaCode /> Software Development</Link>
-                <Link to="/services/web-app-dev"><FaGlobe /> Web Application Development</Link>
-                <Link to="/services/custom-cms"><FaLaptopCode /> Custom Website & CMS</Link>
-                <Link to="/services/portals"><FaColumns /> Enterprise Portals & Dashboard</Link>
-                <Link to="/services/ecommerce"><FaShoppingCart /> eCommerce Website Dev</Link>
+
+                <Link to="/services/software-dev">
+                  <FaCode /> <span>Software Development</span>
+                </Link>
+
+                <Link to="/services/web-app-dev">
+                  <FaGlobe /> <span>Web Application Development</span>
+                </Link>
+
+                <Link to="/services/custom-cms">
+                  <FaLaptopCode /> <span>Custom Website & CMS</span>
+                </Link>
+
+                <Link to="/services/portals">
+                  <FaColumns /> <span>Enterprise Portals & Dashboard</span>
+                </Link>
+
+                <Link to="/services/ecommerce">
+                  <FaShoppingCart /> <span>eCommerce Website Dev</span>
+                </Link>
 
                 <h4 style={{ marginTop: '20px' }}>AI & Data Science</h4>
-                <Link to="/services/ai-integration"><FaBrain /> AI Integration & Strategy</Link>
-                <Link to="/services/ai-agents"><FaRobot /> AI Agents Development</Link>
-                <Link to="/services/nlp"><FaCommentDots /> Natural Language Processing</Link>
+
+                <Link to="/services/ai-integration">
+                  <FaBrain /> <span>AI Integration & Strategy</span>
+                </Link>
+
+                <Link to="/services/ai-agents">
+                  <FaRobot /> <span>AI Agents Development</span>
+                </Link>
+
+                <Link to="/services/nlp">
+                  <FaCommentDots /> <span>Natural Language Processing</span>
+                </Link>
               </div>
+
 
               {/* Service Column 3 */}
               <div className="mega-col">
                 <h4>Design Services</h4>
-                <Link to="/services/ui-ux"><FaPenNib /> UI/UX & Product Design</Link>
-                <Link to="/services/branding"><FaPalette /> Branding & Visual Identity</Link>
-                <Link to="/services/graphic-design"><FaImage /> Graphic Design</Link>
+
+                <Link to="/services/ui-ux">
+                  <FaPenNib /> <span>UI/UX & Product Design</span>
+                </Link>
+
+                <Link to="/services/branding">
+                  <FaPalette /> <span>Branding & Visual Identity</span>
+                </Link>
+
+                <Link to="/services/graphic-design">
+                  <FaImage /> <span>Graphic Design</span>
+                </Link>
 
                 <h4 style={{ marginTop: '20px' }}>Mobile App Development</h4>
-                <Link to="/services/native-app"><FaMobile /> Native Mobile App</Link>
-                <Link to="/services/hybrid-app"><FaLayerGroup /> Hybrid Mobile App</Link>
+
+                <Link to="/services/native-app">
+                  <FaMobile /> <span>Native Mobile App</span>
+                </Link>
+
+                <Link to="/services/hybrid-app">
+                  <FaLayerGroup /> <span>Hybrid Mobile App</span>
+                </Link>
               </div>
 
-              {/* Service Column 4 + Highlight */}
+
+              {/* Service Column 4 */}
               <div className="mega-col">
                 <h4>Marketing Services</h4>
-                <Link to="/services/inbound-marketing"><FaBullhorn /> Inbound Marketing</Link>
-                <Link to="/services/seo"><FaSearch /> SEO Services</Link>
-                <Link to="/services/social-media"><FaHashtag /> Social Media & Paid Ads</Link>
+
+                <Link to="/services/inbound-marketing">
+                  <FaBullhorn /> <span>Inbound Marketing</span>
+                </Link>
+
+                <Link to="/services/seo">
+                  <FaSearch /> <span>SEO Services</span>
+                </Link>
+
+                <Link to="/services/social-media">
+                  <FaHashtag /> <span>Social Media & Paid Ads</span>
+                </Link>
 
                 <h4 style={{ marginTop: '20px' }}>Zero To One</h4>
-                <Link to="/services/mvp-development"><FaRocket /> MVP Development</Link>
-                <Link to="/services/prototyping"><FaDraftingCompass /> Rapid Prototyping</Link>
+
+                <Link to="/services/mvp-development">
+                  <FaRocket /> <span>MVP Development</span>
+                </Link>
+
+                <Link to="/services/prototyping">
+                  <FaDraftingCompass /> <span>Rapid Prototyping</span>
+                </Link>
 
                 <div className="nav-highlight-card">
                   <div className="highlight-image">
@@ -191,33 +307,72 @@ const Navbar = () => {
           onMouseEnter={() => handleMouseEnter('solutions')}
           onMouseLeave={handleMouseLeave}
         >
-          <span className="nav-link" style={activeMenu === 'solutions' ? { textDecoration: 'underline', textUnderlineOffset: '4px', textDecorationColor: 'var(--color-primary)' } : {}}>Solutions</span>
+          <span className={`nav-link ${activeMenu === 'solutions' ? 'active' : ''}`}>Solutions</span>
           <div className={`mega-menu ${activeMenu === 'solutions' ? 'visible' : ''}`} onClick={closeMenu} data-lenis-prevent>
 
             {/* CORE SOLUTIONS SECTION */}
             <div className="mega-section-header">Core Solutions</div>
             <div className="mega-content-grid" style={{ marginBottom: '50px' }}>
+
               <div className="mega-col">
                 <h4>Digital Core</h4>
-                <Link to="/solutions/cloud"><FaCloud /> Cloud Transformation</Link>
-                <Link to="/solutions/data"><FaDatabase /> Data & Analytics</Link>
-                <Link to="/solutions/ai"><FaBrain /> Artificial Intelligence</Link>
-                <Link to="/solutions/automation"><FaCogs /> Intelligent Automation</Link>
+
+                <Link to="/solutions/cloud">
+                  <FaCloud /> <span>Cloud Transformation</span>
+                </Link>
+
+                <Link to="/solutions/data">
+                  <FaDatabase /> <span>Data & Analytics</span>
+                </Link>
+
+                <Link to="/solutions/ai">
+                  <FaBrain /> <span>Artificial Intelligence</span>
+                </Link>
+
+                <Link to="/solutions/automation">
+                  <FaCogs /> <span>Intelligent Automation</span>
+                </Link>
               </div>
+
               <div className="mega-col">
                 <h4>Enterprise</h4>
-                <Link to="/solutions/sap"><SiSap /> SAP S/4HANA</Link>
-                <Link to="/solutions/oracle"><SiOracle /> Oracle Cloud</Link>
-                <Link to="/solutions/supply-chain"><FaTruck /> Smart Supply Chain</Link>
-                <Link to="/solutions/hr"><FaUsers /> HR Transformation</Link>
+
+                <Link to="/solutions/sap">
+                  <SiSap /> <span>SAP S/4HANA</span>
+                </Link>
+
+                <Link to="/solutions/oracle">
+                  <SiOracle /> <span>Oracle Cloud</span>
+                </Link>
+
+                <Link to="/solutions/supply-chain">
+                  <FaTruck /> <span>Smart Supply Chain</span>
+                </Link>
+
+                <Link to="/solutions/hr">
+                  <FaUsers /> <span>HR Transformation</span>
+                </Link>
               </div>
+
               <div className="mega-col">
                 <h4>Security & Infra</h4>
-                <Link to="/solutions/cyber"><FaShieldAlt /> Cybersecurity</Link>
-                <Link to="/solutions/network"><FaNetworkWired /> Network Modernization</Link>
-                <Link to="/solutions/cloud-sec"><FaLock /> Cloud Security</Link>
-                <Link to="/solutions/grc"><FaBalanceScale /> Governance & Risk</Link>
-              </div>
+
+                <Link to="/solutions/cyber">
+                  <FaShieldAlt /> <span>Cybersecurity</span>
+                </Link>
+
+                <Link to="/solutions/network">
+                  <FaNetworkWired /> <span>Network Modernization</span>
+                </Link>
+
+                <Link to="/solutions/cloud-sec">
+                  <FaLock /> <span>Cloud Security</span>
+                </Link>
+
+                <Link to="/solutions/grc">
+                  <FaBalanceScale /> <span>Governance & Risk</span>
+                </Link>
+              </div>  
               {/* Featured Card */}
               <div className="mega-featured">
                 <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Featured Solution" loading='lazy'/>
@@ -234,37 +389,85 @@ const Navbar = () => {
 
               <div className="mega-col">
                 <h4>Financial Services</h4>
-                <Link to="/ind/banking"><FaUniversity /> Banking & Capital Markets</Link>
-                <Link to="/ind/insurance"><FaUmbrella /> Insurance</Link>
-                <Link to="/ind/payments"><FaCreditCard /> Payments & Fintech</Link>
-                <Link to="/ind/wealth"><FaChartLine /> Wealth Management</Link>
+
+                <Link to="/ind/banking">
+                  <FaUniversity /> <span>Banking & Capital Markets</span>
+                </Link>
+
+                <Link to="/ind/insurance">
+                  <FaUmbrella /> <span>Insurance</span>
+                </Link>
+
+                <Link to="/ind/payments">
+                  <FaCreditCard /> <span>Payments & Fintech</span>
+                </Link>
+
+                <Link to="/ind/wealth">
+                  <FaChartLine /> <span>Wealth Management</span>
+                </Link>
               </div>
 
               <div className="mega-col">
                 <h4>Consumer & Health</h4>
-                <Link to="/ind/retail"><FaStore /> Retail & Consumer Goods</Link>
-                <Link to="/ind/health"><FaHeartbeat /> Healthcare Payers & Providers</Link>
-                <Link to="/ind/life-sci"><FaDna /> Life Sciences</Link>
-                <Link to="/ind/travel"><FaPlane /> Travel, Transport & Logistics</Link>
+
+                <Link to="/ind/retail">
+                  <FaStore /> <span>Retail & Consumer Goods</span>
+                </Link>
+
+                <Link to="/ind/health">
+                  <FaHeartbeat /> <span>Healthcare Payers & Providers</span>
+                </Link>
+
+                <Link to="/ind/life-sci">
+                  <FaDna /> <span>Life Sciences</span>
+                </Link>
+
+                <Link to="/ind/travel">
+                  <FaPlane /> <span>Travel, Transport & Logistics</span>
+                </Link>
               </div>
 
               <div className="mega-col">
                 <h4>Industrial & Energy</h4>
-                <Link to="/ind/manufacturing"><FaIndustry /> Industrial Manufacturing</Link>
-                <Link to="/ind/auto"><FaCar /> Automotive</Link>
-                <Link to="/ind/energy"><FaBolt /> Energy, Resources & Utilities</Link>
-                <Link to="/ind/chem"><FaFlask /> Chemicals & Agriculture</Link>
+
+                <Link to="/ind/manufacturing">
+                  <FaIndustry /> <span>Industrial Manufacturing</span>
+                </Link>
+
+                <Link to="/ind/auto">
+                  <FaCar /> <span>Automotive</span>
+                </Link>
+
+                <Link to="/ind/energy">
+                  <FaBolt /> <span>Energy, Resources & Utilities</span>
+                </Link>
+
+                <Link to="/ind/chem">
+                  <FaFlask /> <span>Chemicals & Agriculture</span>
+                </Link>
               </div>
 
               <div className="mega-col">
                 <h4>TMT & Public</h4>
-                <Link to="/ind/telecom"><FaBroadcastTower /> Telecommunications</Link>
-                <Link to="/ind/media"><FaFilm /> Media & Entertainment</Link>
-                <Link to="/ind/hitech"><FaMicrochip /> High Tech & Semiconductors</Link>
-                <Link to="/ind/public"><FaLandmark /> Public Sector & Education</Link>
-              </div>
-            </div>
 
+                <Link to="/ind/telecom">
+                  <FaBroadcastTower /> <span>Telecommunications</span>
+                </Link>
+
+                <Link to="/ind/media">
+                  <FaFilm /> <span>Media & Entertainment</span>
+                </Link>
+
+                <Link to="/ind/hitech">
+                  <FaMicrochip /> <span>High Tech & Semiconductors</span>
+                </Link>
+
+                <Link to="/ind/public">
+                  <FaLandmark /> <span>Public Sector & Education</span>
+                </Link>
+              </div>
+
+            </div>
           </div>
         </div>
 
@@ -274,16 +477,28 @@ const Navbar = () => {
           onMouseEnter={() => handleMouseEnter('company')}
           onMouseLeave={handleMouseLeave}
         >
-          <span className="nav-link" style={activeMenu === 'company' ? { textDecoration: 'underline', textUnderlineOffset: '4px', textDecorationColor: 'var(--color-primary)' } : {}}>Company</span>
+          <span className={`nav-link ${activeMenu === 'company' ? 'active' : ''}`}>Company</span>
           <div className={`mega-menu ${activeMenu === 'company' ? 'visible' : ''}`} onClick={closeMenu} data-lenis-prevent>
             <div className="mega-content-grid" style={{ gridTemplateColumns: '1fr 1fr 1fr 1.5fr' }}>
 
               <div className="mega-col">
                 <h4>Who We Are</h4>
-                <Link to="/about"><FaInfoCircle /> About Fraylon</Link>
-                <Link to="/leadership"><FaUserTie /> Leadership Team</Link>
-                <Link to="/partners"><FaHandshake /> Strategic Partners</Link>
-                <Link to="/news"><FaNewspaper /> News & Media</Link>
+
+                <Link to="/about">
+                  <FaInfoCircle /> <span>About Fraylon</span>
+                </Link>
+
+                <Link to="/leadership">
+                  <FaUserTie /> <span>Leadership Team</span>
+                </Link>
+
+                <Link to="/partners">
+                  <FaHandshake /> <span>Strategic Partners</span>
+                </Link>
+
+                <Link to="/news">
+                  <FaNewspaper /> <span>News & Media</span>
+                </Link>
               </div>
 
               <div className="mega-col">
@@ -308,16 +523,34 @@ const Navbar = () => {
           </div>
         </div>
 
-        <Link to="/insights" className="nav-link" onClick={closeMenu}>Insights</Link>
-        <Link to="/careers" className="nav-link" onClick={closeMenu}>Careers</Link>
+        <div className="nav-item">
+        <Link
+        to="/insights"
+        className={`nav-link ${activeMenu === 'insights' ? 'active' : ''}`}
+        onClick={() => { setActiveMenu('insights'); closeMenu(); }}
+        >
+        Insights
+        </Link>
+        </div>
+
+        <div className="nav-item">
+        <Link
+        to="/careers"
+        className={`nav-link ${activeMenu === 'careers' ? 'active' : ''}`}
+        onClick={() => { setActiveMenu('careers'); closeMenu(); }}
+        >
+        Careers
+        </Link>
+        </div>
       </div>
 
       <div className="nav-actions">
         <Link to="/contact" className="desktop-only"><button className="nav-cta">Contact Us</button></Link>
         <button
-          className={`hamburger-btn ${mobileMenuOpen ? 'open' : ''}`}
-          onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
+        className={`hamburger-btn ${mobileMenuOpen ? 'open' : ''}`}
+        onClick={toggleMobileMenu}
+        aria-label="Toggle navigation menu"
+        aria-expanded={mobileMenuOpen}
         >
           <div className="burger-lines">
             <span></span>
@@ -332,68 +565,137 @@ const Navbar = () => {
         {mobileMenuOpen && (
           <motion.div
             className="mobile-menu-overlay"
+            data-lenis-prevent
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: "tween", duration: 0.3 }}
           >
             <div className="mobile-menu-topbar">
-              {mobileActivePanel !== 'main' ? (
-                <button className="mobile-back-btn" onClick={() => { setMobileActivePanel('main'); setMobileSubExpanded(null); }}>
-                  <FaChevronLeft style={{ marginRight: '8px', fontSize: '0.8rem' }} /> Back
-                </button>
-              ) : (
-                <div style={{ width: '20px' }}></div>
-              )}
-              <div className="mobile-topbar-right">
-                {/* 
-                 Close button logic has been entirely merged into the main navbar 
-                 so that it rests above the overlay with z-index.
-                 */}
-              </div>
-            </div>
 
+  {mobileActivePanel !== 'main' ? (
+    <button
+      className="mobile-back-btn"
+      onClick={() => {
+        const previousPanel = panelHistory[panelHistory.length - 1];
+
+        setPanelHistory(prev => prev.slice(0, -1));
+        setMobileActivePanel(previousPanel || 'main');
+        setMobileSubExpanded(null);
+      }}
+    >
+      <FaChevronLeft />
+      Back
+    </button>
+  ) : (
+    <div className="back-placeholder"></div>
+  )}
+
+  <button
+    className="mobile-close-btn"
+    onClick={closeMenu}
+  >
+    ✕
+  </button>
+
+</div>
             <div className="mobile-menu-content-wrapper">
               <AnimatePresence mode="wait">
                 {mobileActivePanel === 'main' && (
                   <motion.div
                     key="main"
                     className="mobile-menu-content"
+                    variants={menuContainer}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                   >
-                    <div className="mobile-accordion">
-                      <div className="mobile-accordion-header" onClick={() => setMobileActivePanel('services')}>
+                    <motion.div
+                      className="mobile-accordion"
+                      variants={menuItem}
+                    >
+                      <motion.div
+                        className="mobile-accordion-header"
+                        onClick={() => {
+                          setPanelHistory(prev => [...prev, mobileActivePanel]);
+                          setMobileActivePanel('services');
+                        }}
+                        whileTap={{ scale: 0.96 }}
+                      >
                         <span>What we do</span>
                         <FaChevronRight className="mobile-chevron" />
-                      </div>
-                    </div>
-                    <div className="mobile-accordion">
-                      <div className="mobile-accordion-header" onClick={() => setMobileActivePanel('solutions')}>
+                      </motion.div>
+                    </motion.div>
+                    <motion.div
+                      className="mobile-accordion"
+                      variants={menuItem}
+                    >
+                      <motion.div
+                        className="mobile-accordion-header"
+                        onClick={() => {
+                          setPanelHistory(prev => [...prev, mobileActivePanel]);
+                          setMobileActivePanel('solutions');
+                        }}
+                        whileTap={{ scale: 0.96 }}
+                      >
                         <span>Solutions & Industries</span>
                         <FaChevronRight className="mobile-chevron" />
-                      </div>
-                    </div>
-                    <div className="mobile-accordion">
-                      <div className="mobile-accordion-header" onClick={() => setMobileActivePanel('company')}>
+                      </motion.div>
+                    </motion.div>
+
+                    <motion.div
+                      className="mobile-accordion"
+                      variants={menuItem}
+                    >
+                      <motion.div
+                        className="mobile-accordion-header"
+                        
+                        onClick={() => {
+                        setPanelHistory(prev => [...prev, mobileActivePanel]);
+                        setMobileActivePanel('company');
+                      }}
+                        whileTap={{ scale: 0.96 }}
+                      >
                         <span>Who we are</span>
                         <FaChevronRight className="mobile-chevron" />
-                      </div>
-                    </div>
-                    <div className="mobile-accordion">
-                      <Link to="/insights" className="mobile-accordion-header" style={{ textDecoration: 'none' }} onClick={closeMenu}>
-                        <span>Insights</span>
-                        <FaChevronRight className="mobile-chevron" />
-                      </Link>
-                    </div>
-                    <div className="mobile-accordion">
-                      <Link to="/careers" className="mobile-accordion-header" style={{ textDecoration: 'none' }} onClick={closeMenu}>
-                        <span>Careers</span>
-                        <FaChevronRight className="mobile-chevron" />
-                      </Link>
-                    </div>
+                      </motion.div>
+                    </motion.div>
+
+                    <motion.div
+                      className="mobile-accordion"
+                      variants={menuItem}
+                    >
+                      <motion.div whileTap={{ scale: 0.96 }}>
+                        <Link
+                          to="/insights"
+                          className="mobile-accordion-header"
+                          
+                          style={{ textDecoration: 'none' }}
+                          onClick={closeMenu}
+                        >
+                          <span>Insights</span>
+                          <FaChevronRight className="mobile-chevron" />
+                        </Link>
+                      </motion.div>
+                    </motion.div>
+
+                    <motion.div
+                      className="mobile-accordion"
+                      variants={menuItem}
+                    >
+                      <motion.div whileTap={{ scale: 0.96 }}>
+                        <Link
+                          to="/careers"
+                          className="mobile-accordion-header"
+                          style={{ textDecoration: 'none' }}
+                          onClick={closeMenu}
+                        >
+                          <span>Careers</span>
+                          <FaChevronRight className="mobile-chevron" />
+                        </Link>
+                      </motion.div>
+                    </motion.div>
 
                     <div className="mobile-menu-spacer"></div>
 
@@ -415,10 +717,11 @@ const Navbar = () => {
                   <motion.div
                     key="services"
                     className="mobile-menu-content"
+                    
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <div className="mobile-panel-header-section">
                       <h2>Services</h2>
@@ -485,7 +788,7 @@ const Navbar = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <div className="mobile-panel-header-section">
                       <h2>Solutions</h2>
@@ -553,7 +856,7 @@ const Navbar = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <div className="mobile-panel-header-section">
                       <h2>Company</h2>

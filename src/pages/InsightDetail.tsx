@@ -78,7 +78,7 @@ const InsightDetail = () => {
                         <div className="sidebar-widget author-widget">
                             <h4>About the Author</h4>
                             <div className="author-profile">
-                                <img src={insight.authorImage} alt={insight.author} className="author-img" />
+                                <img src={insight.authorImage} alt={insight.author} className="author-img" loading='lazy'/>
                                 <div className="author-info">
                                     <span className="author-name">{insight.author}</span>
                                     <span className="author-role">{insight.authorRole}</span>
@@ -105,7 +105,7 @@ const InsightDetail = () => {
                     {insightsData.filter(item => item.id !== insight.id).slice(0, 3).map((item) => (
                         <div key={item.id} className="insight-card">
                             <div className="insight-image-container">
-                                <img src={item.image} alt={item.title} className="insight-image" />
+                                <img src={item.image} alt={item.title} className="insight-image" loading='lazy'/>
                             </div>
                             <div className="insight-content">
                                 <span className="insight-category">{item.category}</span>

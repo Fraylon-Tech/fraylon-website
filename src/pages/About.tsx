@@ -67,6 +67,7 @@ const About = () => {
                             src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="Fraylon Team Collaboration"
                             className="story-img"
+                            loading='lazy'
                         />
                     </motion.div>
                 </div>
@@ -126,6 +127,7 @@ const About = () => {
                         src="https://images.pexels.com/photos/373893/pexels-photo-373893.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1"
                         alt="Future City"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        loading='lazy'
                     />
                     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(15, 23, 42, 0.8)' }}></div>
                 </div>

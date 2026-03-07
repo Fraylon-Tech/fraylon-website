@@ -137,7 +137,7 @@ const ServiceLayout = ({ data }: { data: ServiceData }) => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="service-hero-visual"
                 >
-                    <img src={data.heroImage} alt={data.title} />
+                    <img src={data.heroImage} alt={data.title} loading='lazy'/>
                 </motion.div>
             </section>
 
@@ -220,7 +220,7 @@ const ServiceLayout = ({ data }: { data: ServiceData }) => {
                         {data.projects.map((project, index) => (
                             <div key={index} className="project-card">
                                 <div className="project-image-wrapper">
-                                    <img src={project.image} alt={project.title} className="project-image" />
+                                    <img src={project.image} alt={project.title} className="project-image" loading='lazy'/>
                                 </div>
                                 <div className="project-content">
                                     <div className="project-tags">

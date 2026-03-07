@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import "./About.css";
 
+const stats = [
+  { number: "50+", label: "Projects Delivered" },
+  { number: "15+", label: "Global Clients" },
+  { number: "20+", label: "Tech Experts" },
+];
+
 const About = () => {
   return (
     <section className="about-section">
@@ -12,10 +18,10 @@ const About = () => {
         {/* Left Content */}
         <motion.div
           className="about-content"
-          initial={{ opacity: 0, x: -60 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
         >
           <span className="about-label">WHO WE ARE</span>
 
@@ -24,41 +30,29 @@ const About = () => {
           </h2>
 
           <p className="about-text">
-            Fraylon Technologies is a modern technology company dedicated to
-            building innovative digital solutions, scalable platforms, and
-            intelligent systems that empower businesses worldwide.
+            Fraylon Technologies is a modern technology company focused on
+            creating innovative digital solutions, scalable web platforms,
+            and intelligent systems that empower businesses globally.
           </p>
 
           <p className="about-text">
-            By combining engineering excellence, strategic thinking, and
-            cutting-edge technologies, our team helps organizations transform
-            ideas into impactful digital products that drive growth and
-            innovation.
+            By combining engineering expertise, strategic thinking, and
+            advanced technologies, we help organizations transform ideas into
+            impactful digital products that accelerate growth and innovation.
           </p>
 
           {/* Stats */}
           <div className="stats-grid">
-
-            <div className="stat-block">
-              <h4>50+</h4>
-              <p>Projects Delivered</p>
-            </div>
-
-            <div className="stat-block">
-              <h4>15+</h4>
-              <p>Global Clients</p>
-            </div>
-
-            <div className="stat-block">
-              <h4>20+</h4>
-              <p>Tech Experts</p>
-            </div>
-
+            {stats.map((stat, index) => (
+              <div className="stat-block" key={index}>
+                <h4>{stat.number}</h4>
+                <p>{stat.label}</p>
+              </div>
+            ))}
           </div>
 
-          {/* Button */}
-
-          <Link to="/leadership">
+          {/* CTA Button */}
+          <Link to="/leadership" className="about-link">
             <button className="btn btn-primary about-btn">
               Meet Our Leadership
               <FaArrowRight style={{ marginLeft: "10px" }} />
@@ -68,19 +62,18 @@ const About = () => {
         </motion.div>
 
         {/* Right Image */}
-
         <motion.div
           className="about-image-wrapper"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
         >
           <div className="about-accent-box"></div>
 
           <img
             src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg"
-            alt="Fraylon Team Collaboration"
+            alt="Fraylon team collaboration meeting"
             className="about-img"
             loading="lazy"
           />

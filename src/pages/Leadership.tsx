@@ -1,13 +1,7 @@
-import { motion } from 'framer-motion';
-import { FaLinkedinIn, FaTwitter } from 'react-icons/fa';
-import './Leadership.css';
-import { leadershipData } from '../data/leadershipData';
-
-const fadeUp = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-};
+import { motion } from "framer-motion";
+import { FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import "./Leadership.css";
+import { leadershipData } from "../data/leadershipData";
 
 const Leadership = () => {
   return (
@@ -45,8 +39,7 @@ const Leadership = () => {
             >
               Meet the collective intelligence behind Fraylon's success.
               Our leadership team combines innovation, strategy and
-              technology expertise to shape the future of digital
-              transformation.
+              technology expertise to shape the future of digital transformation.
             </motion.p>
 
           </div>
@@ -57,12 +50,14 @@ const Leadership = () => {
       <section className="leadership-grid-section">
         <div className="leaders-grid">
 
-          {leaders.map((leader) => (
+          {leadershipData.map((leader, index) => (
             <motion.div
               className="leader-card"
-              key={leader.name}
-              {...fadeUp}
+              key={index}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
 
               {/* Image */}
@@ -77,78 +72,14 @@ const Leadership = () => {
                     loading="lazy"
                   />
                 </div>
-            </section>
+              </div>
 
-            {/* --- Leadership Grid --- */}
-            <section className="leadership-grid-section">
-                <div className="leaders-grid">
-                    {leadershipData.map((leader, index) => (
-                        <motion.div
-                            className="leader-card"
-                            key={index}
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true, margin: "-10%" }}
-                            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-                        >
-                            {/* Image Side */}
-                            <div className="leader-image-wrapper-outer">
-                                <div className="leader-image-accent"></div>
-                                <div className="leader-image-wrapper">
-                                    <img src={leader.image} alt={leader.name} className="leader-image" loading='lazy'/>
-                                </div>
-                            </div>
+              {/* Info */}
+              <div className="leader-info">
 
-                            {/* Info Side */}
-                            <div className="leader-info">
-                                <motion.div
-                                    className="leader-role-wrapper"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: 0.2 }}
-                                >
-                                    <span className="role-line"></span>
-                                    <span className="leader-role">{leader.role}</span>
-                                </motion.div>
-
-                                <motion.h3
-                                    className="leader-name"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: 0.3 }}
-                                >
-                                    {leader.name}
-                                </motion.h3>
-
-                                <motion.p
-                                    className="leader-bio"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: 0.4 }}
-                                >
-                                    {leader.bio}
-                                </motion.p>
-
-                                <motion.div
-                                    className="leader-social-links"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: 0.5 }}
-                                >
-                                    <a href="#" className="social-icon">
-                                        <FaLinkedinIn />
-                                    </a>
-                                    <a href="#" className="social-icon">
-                                        <FaTwitter />
-                                    </a>
-                                </motion.div>
-                            </div>
-                        </motion.div>
-                    ))}
+                <div className="leader-role-wrapper">
+                  <span className="role-line"></span>
+                  <span className="leader-role">{leader.role}</span>
                 </div>
 
                 <h3 className="leader-name">{leader.name}</h3>
@@ -166,6 +97,7 @@ const Leadership = () => {
                 </div>
 
               </div>
+
             </motion.div>
           ))}
 

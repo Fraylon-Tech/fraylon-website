@@ -59,11 +59,9 @@ const Leadership = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-
-              {/* Image */}
+              {/* Image Side */}
               <div className="leader-image-wrapper-outer">
                 <div className="leader-image-accent"></div>
-
                 <div className="leader-image-wrapper">
                   <img
                     src={leader.image}
@@ -81,26 +79,59 @@ const Leadership = () => {
                   <span className="role-line"></span>
                   <span className="leader-role">{leader.role}</span>
                 </div>
+              </div>
 
-                <h3 className="leader-name">{leader.name}</h3>
+              {/* Info Side */}
+              <div className="leader-info">
+                <motion.div
+                  className="leader-role-wrapper"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  <span className="role-line"></span>
+                  <span className="leader-role">{leader.role}</span>
+                </motion.div>
 
-                <p className="leader-bio">{leader.bio}</p>
+                <motion.h3
+                  className="leader-name"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  {leader.name}
+                </motion.h3>
 
-                <div className="leader-social-links">
+                <motion.p
+                  className="leader-bio"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  {leader.bio}
+                </motion.p>
+
+                <motion.div
+                  className="leader-social-links"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                >
                   <a href="#" className="social-icon">
                     <FaLinkedinIn />
                   </a>
-
                   <a href="#" className="social-icon">
                     <FaTwitter />
                   </a>
-                </div>
-
+                </motion.div>
               </div>
 
             </motion.div>
           ))}
-
         </div>
       </section>
 

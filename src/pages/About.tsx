@@ -1,42 +1,159 @@
 import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaLightbulb, FaShieldAlt, FaUsers } from 'react-icons/fa';
+import CountUp from "react-countup";
+import {
+  FaLightbulb,
+  FaShieldAlt,
+  FaUsers,
+  FaRocket,
+  FaHandshake,
+  FaGraduationCap,
+  FaCheckCircle,
+  FaHeart
+} from 'react-icons/fa';
 import './About.css';
 
 const MotionLink = motion(Link);
 
 const About = () => {
+
+    const containerVariants: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15
+            }
+        }
+    };
+
+    const cardVariants: Variants = {
+        hidden: { opacity: 0, y: 40 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeOut"
+            }
+        }
+    };
+
     return (
         <div className="about-page">
             <div className="container">
-                {/* --- Hero Section --- */}
-                <div className="about-hero">
-                    <motion.span
-                        className="about-tag"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                    >
-                        Who We Are
-                    </motion.span>
-                    <motion.h1
-                        className="about-title"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                    >
-                        We are Fraylon.<br /> Architects of the Digital Future.
-                    </motion.h1>
-                    <motion.p
-                        className="about-lead"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        A global consultancy combining strategic foresight with deep technical expertise to build the enterprises of tomorrow.
-                    </motion.p>
-                </div>
+               {/* --- Hero Section --- */}
+<div className="about-hero">
+
+    <motion.span
+        className="about-tag"
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+    >
+        Who We Are
+    </motion.span>
+
+    <motion.h1 className="about-title">
+
+  <motion.span
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+  >
+    We are
+  </motion.span>
+
+  {" "}
+
+  <motion.span
+    className="brand-highlight"
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.2, duration: 0.6 }}
+  >
+    Fraylon
+  </motion.span>
+
+  <br />
+
+  <motion.span
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.4, duration: 0.6 }}
+  >
+    Architects of the Digital Future.
+  </motion.span>
+
+</motion.h1>
+
+    <motion.p
+  className="about-lead"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.6 }}
+>
+  A global technology partner helping ambitious organizations
+  build, scale, and innovate in the digital age.
+</motion.p>
+
+</div>
 
                 {/* --- Story Section --- */}
+                {/* --- Story Section --- */}
+<div className="about-story">
+    <motion.div
+        className="story-content"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+    >
+        <h2 className="story-heading">A decade of innovation and impact.</h2>
+
+        <p className="story-text">
+            Founded in 2014, Fraylon began with a vision to help organizations harness the full power of technology. What started as a small team of passionate engineers has grown into a trusted global partner delivering digital transformation for enterprises around the world.
+        </p>
+
+        <p className="story-text">
+            At Fraylon, we believe technology should be a catalyst for growth and innovation. From modernizing legacy systems to building intelligent AI-driven platforms, our work combines deep technical expertise with strategic thinking to solve real business challenges.
+        </p>
+    </motion.div>
+
+    <motion.div
+        className="story-image-wrapper"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+    >
+        <img
+            src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Fraylon Team Collaboration"
+            className="story-img"
+        />
+    </motion.div>
+</div>
+<motion.section
+  className="mission-section"
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.4 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+>
+  <div className="container mission-container">
+
+    <span className="mission-tag">
+      Our Mission
+    </span>
+
+    <p className="mission-text">
+      Empower organizations with innovative technology that
+      accelerates transformation, unlocks new opportunities,
+      and drives lasting impact.
+    </p>
+
+  </div>
+</motion.section>
                 <div className="about-story">
                     <motion.div
                         className="story-content"
@@ -74,22 +191,45 @@ const About = () => {
 
                 {/* --- Stats Section --- */}
                 <div className="about-stats">
-                    <motion.div className="stat-item" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                        <span className="stat-number">10+</span>
-                        <span className="stat-label">Years of Excellence</span>
-                    </motion.div>
-                    <motion.div className="stat-item" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-                        <span className="stat-number">150+</span>
-                        <span className="stat-label">Enterprise Clients</span>
-                    </motion.div>
-                    <motion.div className="stat-item" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-                        <span className="stat-number">12</span>
-                        <span className="stat-label">Global Offices</span>
-                    </motion.div>
-                    <motion.div className="stat-item" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
-                        <span className="stat-number">500+</span>
-                        <span className="stat-label">Engineers & Strategists</span>
-                    </motion.div>
+                    <motion.section
+  className="about-stats"
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ amount: 0.4 }}
+  transition={{ duration: 0.6 }}
+>
+  <div className="container stats-container">
+
+    <div className="stat-item">
+      <div className="stat-number">
+        <CountUp end={10} duration={2.5} enableScrollSpy />+
+      </div>
+      <div className="stat-label">Years of Excellence</div>
+    </div>
+
+    <div className="stat-item">
+      <div className="stat-number">
+        <CountUp end={150} duration={2.5} enableScrollSpy />+
+      </div>
+      <div className="stat-label">Enterprise Clients</div>
+    </div>
+
+    <div className="stat-item">
+      <div className="stat-number">
+        <CountUp end={12} duration={2.5} enableScrollSpy />
+      </div>
+      <div className="stat-label">Global Offices</div>
+    </div>
+
+    <div className="stat-item">
+      <div className="stat-number">
+        <CountUp end={500} duration={2.5} enableScrollSpy />+
+      </div>
+      <div className="stat-label">Engineers & Strategists</div>
+    </div>
+
+  </div>
+</motion.section>
                 </div>
             </div>
 
@@ -98,26 +238,107 @@ const About = () => {
                 <div className="container">
                     <div className="values-header">
                         <span className="about-tag">Our Core Principles</span>
-                        <h2 className="story-heading">Driven by values, defined by results.</h2>
+                        <h2>
+                        Driven by <span>values</span>, defined by results.
+                        </h2>
                     </div>
-                    <div className="values-grid">
-                        <div className="value-card">
-                            <FaLightbulb className="value-icon" />
-                            <h3>Innovation First</h3>
-                            <p>We believe in challenging the status quo. We don't just follow trends; we set them by experimenting with emerging technologies.</p>
+                    <motion.div
+                    className="values-grid"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    >
+
+                    <motion.div
+  className="value-card"
+  variants={cardVariants}
+>
+                        <FaLightbulb className="value-icon" />
+                        <h3>Innovation First</h3>
+                        <p>
+                            We constantly explore emerging technologies and bold ideas to build solutions that keep our clients ahead in a rapidly evolving digital world.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+  className="value-card"
+  variants={cardVariants}
+>
+                        <FaShieldAlt className="value-icon" />
+                        <h3>Integrity & Trust</h3>
+                        <p>
+                            Trust is the foundation of every partnership. We operate with transparency, accountability, and honesty in everything we do.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+  className="value-card"
+  variants={cardVariants}
+>
+                        <FaUsers className="value-icon" />
+                        <h3>Client Success</h3>
+                        <p>
+                            Our success is defined by the success of our clients. We deeply understand their challenges and deliver solutions that create measurable impact.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+  className="value-card"
+  variants={cardVariants}
+>
+                        <FaRocket className="value-icon" />
+                        <h3>Excellence in Execution</h3>
+                        <p>
+                            We believe great ideas must be backed by flawless execution. Our teams focus on delivering high-quality, scalable, and reliable solutions.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+  className="value-card"
+  variants={cardVariants}
+>
+                        <FaHandshake className="value-icon" />
+                        <h3>Collaboration</h3>
+                        <p>
+                            The best innovations happen when diverse minds work together. We foster a culture of collaboration, respect, and shared success.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+  className="value-card"
+  variants={cardVariants}
+>
+                        <FaGraduationCap className="value-icon" />
+                        <h3>Continuous Learning</h3>
+                        <p>
+                            Technology evolves rapidly, and so do we. We encourage curiosity, learning, and constant improvement to stay ahead of the curve.
+                        </p>
+                    </motion.div>
+                    <motion.div
+  className="value-card"
+  variants={cardVariants}
+>
+                    <FaCheckCircle className="value-icon" />
+                    <h3>Ownership & Accountability</h3>
+                    <p>
+                        We take full responsibility for the solutions we build and the outcomes we deliver. Every team member acts with ownership, ensuring reliability, quality, and trust.
+                    </p>
+                </motion.div>
+
+                <motion.div
+  className="value-card"
+  variants={cardVariants}
+>
+                    <FaHeart className="value-icon" />
+                    <h3>Customer-Centric Thinking</h3>
+                    <p>
+                        Every decision begins with the customer in mind. We focus on delivering meaningful experiences and long-term value for the organizations we serve.
+                    </p>
+                </motion.div>
+
+                </motion.div>
                         </div>
-                        <div className="value-card">
-                            <FaShieldAlt className="value-icon" />
-                            <h3>Radical Integrity</h3>
-                            <p>Trust is our currency. We are transparent in our processes, honest in our advice, and accountable for our results.</p>
-                        </div>
-                        <div className="value-card">
-                            <FaUsers className="value-icon" />
-                            <h3>Client Obsession</h3>
-                            <p>We measure our success by the success of our clients. We embed ourselves in your teams to truly understand your challenges.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             {/* --- Original CTA Section --- */}

@@ -42,7 +42,7 @@ const Insights = () => {
                     className="featured-insight"
                 >
                     <div className="featured-image-container">
-                        <img src={featuredInsight.image} alt={featuredInsight.title} />
+                        <img src={featuredInsight.image} alt={featuredInsight.title} loading='lazy'/>
                     </div>
                     <div className="featured-content">
                         <span className="insight-category">{featuredInsight.category}</span>
@@ -84,7 +84,7 @@ const Insights = () => {
                         transition={{ delay: index * 0.1, duration: 0.5 }}
                     >
                         <div className="insight-image-container">
-                            <img src={item.image} alt={item.title} className="insight-image" />
+                            <img src={item.image} alt={item.title} className="insight-image" loading='lazy'/>
                         </div>
                         <div className="insight-content">
                             <span className="insight-category">{item.category}</span>

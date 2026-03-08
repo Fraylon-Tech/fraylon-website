@@ -115,7 +115,7 @@ const Industries = () => {
                                                 <h3>{data.title}</h3>
                                                 <p>{data.description}</p>
                                             </div>
-                                            <img src={`https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=200&auto=format&fit=crop`} alt={data.title} className="industry-bg-image" />
+                                            <img src={`https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=200&auto=format&fit=crop`} alt={data.title} className="industry-bg-image" loading='lazy'/>
                                         </motion.div>
                                     </Link>
                                 );

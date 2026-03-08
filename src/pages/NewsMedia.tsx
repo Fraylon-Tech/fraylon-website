@@ -57,7 +57,7 @@ const NewsMedia = () => {
                             whileHover={{ boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
                         >
                             <div style={{ height: '240px', overflow: 'hidden', position: 'relative' }}>
-                                <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading='lazy'/>
                                 <span style={{
                                     position: 'absolute', top: '20px', left: '20px',
                                     background: '#0f172a', color: '#fff', padding: '5px 12px',

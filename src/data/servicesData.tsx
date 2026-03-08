@@ -1,6 +1,4 @@
 // Icons are now mapped in ServiceLayout.tsx
-
-
 export interface Project {
     title: string;
     desc: string;
@@ -1933,3 +1931,25 @@ export const servicesData: Record<string, ServiceData> = {
         ]
     },
 };
+
+// Precomputed lookup map for project details by work ID (the segment after `/work/` in the link)
+export const projectLookupByWorkId: Record<string, { project: Project; serviceTitle: string }> = (() => {
+    const map: Record<string, { project: Project; serviceTitle: string }> = {};
+
+    Object.values(servicesData).forEach((service) => {
+        if (!service.projects) return;
+
+        service.projects.forEach((project) => {
+            const match = project.link.match(/^\/work\/(.+)$/);
+            if (!match) return;
+
+            const workId = match[1];
+            // Only first occurrence is kept; later duplicates are ignored intentionally
+            if (!map[workId]) {
+                map[workId] = { project, serviceTitle: service.title };
+            }
+        });
+    });
+
+    return map;
+})();

@@ -26,9 +26,6 @@ const CookieConsent: React.FC = () => {
   const loadGoogleAnalytics = () => {
     // Prevent loading it twice
     if (document.getElementById('google-analytics-script')) return;
-
-    console.log('Initializing Google Analytics...');
-
     // Inject the main script
     const script = document.createElement('script');
     script.id = 'google-analytics-script';

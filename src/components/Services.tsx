@@ -18,42 +18,42 @@ const services: ServiceItem[] = [
         icon: <FaCloud />,
         title: "Cloud Infrastructure",
         desc: "Scalable, secure, and resilient cloud architectures designed for the enterprise.",
-        image: "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg",
+        image: "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         link: "/services/digital-transformation"
     },
     {
         icon: <FaBrain />,
         title: "Artificial Intelligence",
         desc: "Deploying generative AI agents to automate complex workflows and decision making.",
-        image: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
+        image: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         link: "/services/ai-integration"
     },
     {
         icon: <FaCode />,
         title: "Digital Engineering",
         desc: "End-to-end software development that modernizes legacy systems.",
-        image: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg",
+        image: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         link: "/services/software-dev"
     },
     {
         icon: <FaShieldAlt />,
         title: "Cyber Security",
         desc: "Zero-trust security frameworks protecting your most critical digital assets.",
-        image: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg",
+        image: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         link: "/services/tech-consulting"
     },
     {
         icon: <FaChartLine />,
         title: "Data & Analytics",
         desc: "Turning raw data into actionable strategic insights via advanced pipelines.",
-        image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg",
+        image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         link: "/solutions/data"
     },
     {
         icon: <FaMobileAlt />,
         title: "Enterprise Mobility",
         desc: "Seamless mobile experiences for your workforce and customers.",
-        image: "https://images.pexels.com/photos/4065876/pexels-photo-4065876.jpeg",
+        image: "https://images.pexels.com/photos/4065876/pexels-photo-4065876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         link: "/services/native-app"
     }
 ];

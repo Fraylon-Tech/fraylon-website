@@ -154,6 +154,40 @@ const About = () => {
 
   </div>
 </motion.section>
+                <div className="about-story">
+                    <motion.div
+                        className="story-content"
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="story-heading">A Decade of relentless innovation.</h2>
+                        <p className="story-text">
+                            Founded in 2014, Fraylon began with a simple belief: that technology should not just support business, but drive it. What started as a boutique software studio has evolved into a global digital transformation partner for Fortune 500 companies.
+                        </p>
+                        <p className="story-text">
+                            We don't just write code; we solve complex problems. From legacy system modernization to pioneering AI agents, our work sits at the intersection of robust engineering and visionary strategy.
+                        </p>
+                        <div style={{ marginTop: '40px', paddingLeft: '20px', borderLeft: '4px solid var(--color-primary)' }}>
+                            <p style={{ fontSize: '1.5rem', fontWeight: 'bold', fontStyle: 'italic', color: 'var(--color-brand-black)' }}>
+                                "Our mission is to empower organizations to navigate the digital age with confidence and agility."
+                            </p>
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        className="story-image-wrapper"
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <img
+                            src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="Fraylon Team Collaboration"
+                            className="story-img"
+                            loading='lazy'
+                        />
+                    </motion.div>
+                </div>
 
                 {/* --- Stats Section --- */}
                 <div className="about-stats">
@@ -338,6 +372,7 @@ const About = () => {
                         src="https://images.pexels.com/photos/373893/pexels-photo-373893.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1"
                         alt="Future City"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        loading='lazy'
                     />
                     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(15, 23, 42, 0.8)' }}></div>
                 </div>

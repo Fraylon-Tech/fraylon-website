@@ -252,10 +252,7 @@ const About = () => {
 
                     <motion.div
   className="value-card"
-  variants={{
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 }
-  }}
+  variants={cardVariants}
 >
                         <FaLightbulb className="value-icon" />
                         <h3>Innovation First</h3>
@@ -266,10 +263,7 @@ const About = () => {
 
                     <motion.div
   className="value-card"
-  variants={{
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 }
-  }}
+  variants={cardVariants}
 >
                         <FaShieldAlt className="value-icon" />
                         <h3>Integrity & Trust</h3>
@@ -280,10 +274,7 @@ const About = () => {
 
                     <motion.div
   className="value-card"
-  variants={{
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 }
-  }}
+  variants={cardVariants}
 >
                         <FaUsers className="value-icon" />
                         <h3>Client Success</h3>
@@ -294,10 +285,7 @@ const About = () => {
 
                     <motion.div
   className="value-card"
-  variants={{
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 }
-  }}
+  variants={cardVariants}
 >
                         <FaRocket className="value-icon" />
                         <h3>Excellence in Execution</h3>
@@ -308,10 +296,7 @@ const About = () => {
 
                     <motion.div
   className="value-card"
-  variants={{
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 }
-  }}
+  variants={cardVariants}
 >
                         <FaHandshake className="value-icon" />
                         <h3>Collaboration</h3>
@@ -322,10 +307,7 @@ const About = () => {
 
                     <motion.div
   className="value-card"
-  variants={{
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 }
-  }}
+  variants={cardVariants}
 >
                         <FaGraduationCap className="value-icon" />
                         <h3>Continuous Learning</h3>
@@ -335,10 +317,7 @@ const About = () => {
                     </motion.div>
                     <motion.div
   className="value-card"
-  variants={{
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 }
-  }}
+  variants={cardVariants}
 >
                     <FaCheckCircle className="value-icon" />
                     <h3>Ownership & Accountability</h3>
@@ -349,10 +328,7 @@ const About = () => {
 
                 <motion.div
   className="value-card"
-  variants={{
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 }
-  }}
+  variants={cardVariants}
 >
                     <FaHeart className="value-icon" />
                     <h3>Customer-Centric Thinking</h3>

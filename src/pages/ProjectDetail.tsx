@@ -2,13 +2,8 @@ import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaArrowLeft } from 'react-icons/fa';
-import { servicesData } from '../data/servicesData';
-import type { Project } from '../data/servicesData';
+import { projectLookupByWorkId } from '../data/servicesData';
 import './ProjectDetail.css';
-
-interface EnrichedProject extends Project {
-    serviceTitle: string;
-}
 
 const ProjectDetail = () => {
     const { id } = useParams<{ id: string }>();
@@ -17,19 +12,9 @@ const ProjectDetail = () => {
         window.scrollTo(0, 0);
     }, [id]);
 
-    let project: EnrichedProject | null = null;
-    if (id) {
-        for (const serviceKey in servicesData) {
-            const service = servicesData[serviceKey];
-            if (service.projects) {
-                const found = service.projects.find((p) => p.link === `/work/${id}`);
-                if (found) {
-                    project = { ...found, serviceTitle: service.title };
-                    break;
-                }
-            }
-        }
-    }
+    const projectEntry = id ? projectLookupByWorkId[id] : undefined;
+    const project = projectEntry?.project ?? null;
+    const serviceTitle = projectEntry?.serviceTitle ?? '';
 
     if (!project) {
         return (
@@ -76,7 +61,7 @@ const ProjectDetail = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    <img src={project.image} alt={project.title} />
+                    <img src={project.image} alt={project.title} loading='lazy'/>
                 </motion.div>
 
                 <div className="project-info-grid">
@@ -84,7 +69,7 @@ const ProjectDetail = () => {
                         <h3>About the Project</h3>
                         <p>
                             {/* Since we don't have detailed long-form content, we reuse the description generic text but in a real app this would be longer. */}
-                            This project represents a comprehensive solution as part of our {project.serviceTitle} offerings.
+                            This project represents a comprehensive solution as part of our {serviceTitle || 'Custom Development'} offerings.
                             Focusing on scalable architecture and premium user experience, we delivered
                             {project.title} to meet rigorous industry standards.
                         </p>
@@ -99,7 +84,7 @@ const ProjectDetail = () => {
 
                         <div className="info-item">
                             <div className="info-label">Service Category</div>
-                            <div className="info-value">{project.serviceTitle || 'Custom Development'}</div>
+                            <div className="info-value">{serviceTitle || 'Custom Development'}</div>
                         </div>
 
                         <div className="info-item">

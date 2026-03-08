@@ -33,6 +33,7 @@ const Industries = () => {
                                 src={activeIndustry.image}
                                 alt={activeIndustry.title}
                                 className="ind-hero-bg"
+                                loading='lazy'
                             />
                             <div className="ind-image-overlay"></div>
                         </motion.div>

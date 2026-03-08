@@ -288,7 +288,7 @@ const menuItem = {
 
                 <div className="nav-highlight-card">
                   <div className="highlight-image">
-                    <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Consultation" />
+                    <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Consultation" loading='lazy'/>
                   </div>
                   <div className="highlight-content">
                     <h5>Not sure what you need?</h5>
@@ -375,7 +375,7 @@ const menuItem = {
               </div>  
               {/* Featured Card */}
               <div className="mega-featured">
-                <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg" alt="Featured Solution" />
+                <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Featured Solution" loading='lazy'/>
                 <div className="mega-featured-text">
                   <h5>Agentic AI is Here</h5>
                   <p>Discover our new autonomous enterprise platform.</p>
@@ -511,7 +511,7 @@ const menuItem = {
 
               {/* Featured Card */}
               <div className="mega-featured">
-                <img src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Our Team" />
+                <img src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Our Team" loading='lazy'/>
                 <div className="mega-featured-text">
                   <h5>Join the Vision</h5>
                   <p>Explore career opportunities and become part of our journey.</p>

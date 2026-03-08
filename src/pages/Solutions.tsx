@@ -32,9 +32,8 @@ const Solutions = () => {
             videoRef.current.load();
             const playPromise = videoRef.current.play();
             if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.log("Auto-play prevented (User must interact first):", error);
-                    // Minimal fallback: User will have to click play manually if muted autoplay is blocked (rare for muted)
+                playPromise.catch(() => {
+                    // Minimal fallback: User will have to click play manually if muted autoplay is blocked.
                 });
             }
         }
@@ -222,6 +221,7 @@ const Solutions = () => {
                                                 src={mapEntry.image}
                                                 alt={tech}
                                                 className="tech-logo-img"
+                                                loading='lazy'
                                             />
                                             {tech}
                                         </span>
@@ -446,7 +446,7 @@ const Solutions = () => {
                                     <Icon className="solution-icon" />
                                     <h3>{data.title}</h3>
                                     <p>{data.description}</p>
-                                    <img src={`https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=200&auto=format&fit=crop`} alt={data.title} className="solution-bg-image" />
+                                    <img src={`https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=200&auto=format&fit=crop`} alt={data.title} className="solution-bg-image" loading='lazy'/>
                                 </motion.div>
                             </Link>
                         );

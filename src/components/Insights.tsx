@@ -33,7 +33,7 @@ const Insights = () => {
                     viewport={{ once: true }}
                 >
                     <Link to={`/insights/${mainInsight?.id}`} className="insight-link-wrapper">
-                        <img src={mainInsight?.image} alt={mainInsight?.title} className="insight-img" />
+                        <img src={mainInsight?.image} alt={mainInsight?.title} className="insight-img" loading='lazy'/>
                         <div className="insight-content-overlay">
                             <span className="tag">{mainInsight?.category}</span>
                             <h3>{mainInsight?.title}</h3>
@@ -53,7 +53,7 @@ const Insights = () => {
                     transition={{ delay: 0.1 }}
                 >
                     <Link to={`/insights/${tallInsight?.id}`} className="insight-link-wrapper">
-                        <img src={tallInsight?.image} alt={tallInsight?.title} className="insight-img" />
+                        <img src={tallInsight?.image} alt={tallInsight?.title} className="insight-img" loading='lazy'/>
                         <div className="insight-content-overlay">
                             <span className="tag">{tallInsight?.category}</span>
                             <h3>{tallInsight?.title}</h3>
@@ -70,7 +70,7 @@ const Insights = () => {
                     transition={{ delay: 0.2 }}
                 >
                     <Link to={`/insights/${smallInsight1?.id}`} className="insight-link-wrapper">
-                        <img src={smallInsight1?.image} alt={smallInsight1?.title} className="insight-img" />
+                        <img src={smallInsight1?.image} alt={smallInsight1?.title} className="insight-img" loading='lazy'/>
                         <div className="insight-content-overlay-small">
                             <span className="tag">{smallInsight1?.category}</span>
                             <h3>{smallInsight1?.title}</h3>
@@ -88,7 +88,7 @@ const Insights = () => {
                     transition={{ delay: 0.3 }}
                 >
                     <Link to={`/insights/${smallInsight2?.id}`} className="insight-link-wrapper">
-                        <img src={smallInsight2?.image} alt={smallInsight2?.title} className="insight-img" />
+                        <img src={smallInsight2?.image} alt={smallInsight2?.title} className="insight-img" loading='lazy'/>
                         <div className="insight-content-overlay-small">
                             <span className="tag">{smallInsight2?.category}</span>
                             <h3>{smallInsight2?.title}</h3>

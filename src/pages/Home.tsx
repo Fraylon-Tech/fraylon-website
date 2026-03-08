@@ -1,15 +1,17 @@
-import Hero from '../components/Hero';
-import Services from '../components/Services';
-import Industries from '../components/Industries';
-import GlobalImpact from '../components/GlobalImpact';
-import Insights from '../components/Insights';
-import Careers from '../components/Careers';
-import About from '../components/About';
-import Contact from '../components/Contact';
+import { lazy, Suspense } from "react";
+
+const Hero = lazy(() => import('../components/Hero'));
+const Services = lazy(() => import('../components/Services'));
+const Industries = lazy(() => import('../components/Industries'));
+const GlobalImpact = lazy(() => import('../components/GlobalImpact'));
+const Insights = lazy(() => import('../components/Insights'));
+const Careers = lazy(() => import('../components/Careers'));
+const About = lazy(() => import('../components/About'));
+const Contact = lazy(() => import('../components/Contact'));
 
 const Home = () => {
     return (
-        <>
+        <Suspense fallback={<div>Loading...</div>}>
             <Hero />
             <Services />
             <Industries />
@@ -18,7 +20,7 @@ const Home = () => {
             <Careers />
             <About />
             <Contact />
-        </>
+        </Suspense>
     );
 };
 

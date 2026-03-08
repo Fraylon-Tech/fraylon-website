@@ -242,7 +242,7 @@ const Projects = () => {
                                         onClick={() => navigate(project.link)}
                                     >
                                         <div className="project-image-wrapper">
-                                            <img src={project.image} alt={project.title} className="project-image" />
+                                            <img src={project.image} alt={project.title} className="project-image" loading='lazy'/>
                                         </div>
                                         <div className="project-content">
                                             <div className="project-tags">

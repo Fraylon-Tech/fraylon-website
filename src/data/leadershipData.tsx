@@ -1,5 +1,5 @@
-import alexFraylonImg from '../assets/images/alex-fraylon.jpg';
-import vigneswarImg from '../assets/images/vigneswar-nalluri.jpg';
+import alexFraylonImg from '../assets/images/leadership/alex-fraylon.jpg';
+import vigneswarImg from '../assets/images/leadership/vigneswar-nalluri.jpg';
 
 export interface Leader {
   name: string;

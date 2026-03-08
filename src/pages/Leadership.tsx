@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { FaLinkedinIn, FaTwitter } from 'react-icons/fa';
-import './Leadership.css';
-import { leadershipData } from '../data/leadershipData';
+import { motion } from "framer-motion";
+import { FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import "./Leadership.css";
+import { leadershipData } from "../data/leadershipData";
 
 const Leadership = () => {
   return (
@@ -39,8 +39,7 @@ const Leadership = () => {
             >
               Meet the collective intelligence behind Fraylon's success.
               Our leadership team combines innovation, strategy and
-              technology expertise to shape the future of digital
-              transformation.
+              technology expertise to shape the future of digital transformation.
             </motion.p>
 
           </div>
@@ -50,20 +49,35 @@ const Leadership = () => {
       {/* Leadership Grid */}
       <section className="leadership-grid-section">
         <div className="leaders-grid">
+
           {leadershipData.map((leader, index) => (
             <motion.div
               className="leader-card"
               key={index}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
               {/* Image Side */}
               <div className="leader-image-wrapper-outer">
                 <div className="leader-image-accent"></div>
                 <div className="leader-image-wrapper">
-                  <img src={leader.image} alt={leader.name} className="leader-image" loading="lazy" />
+                  <img
+                    src={leader.image}
+                    alt={leader.name}
+                    className="leader-image"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* Info */}
+              <div className="leader-info">
+
+                <div className="leader-role-wrapper">
+                  <span className="role-line"></span>
+                  <span className="leader-role">{leader.role}</span>
                 </div>
               </div>
 
@@ -115,6 +129,7 @@ const Leadership = () => {
                   </a>
                 </motion.div>
               </div>
+
             </motion.div>
           ))}
         </div>

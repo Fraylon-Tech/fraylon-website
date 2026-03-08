@@ -17,32 +17,32 @@ import "./About.css";
 const MotionLink = motion(Link);
 
 const About = () => {
-    const containerVariants: Variants = {
-      hidden: {
-        opacity: 0
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.03,
       },
-      visible: {
-        opacity: 1,
-        transition: {
-          staggerChildren: 0.12
-        }
-      }
-    };
-    const cardVariants: Variants = {
+    },
+  };
+  const isMobile = window.innerWidth < 768;
+
+  const cardVariants: Variants = {
     hidden: {
       opacity: 0,
-      y: 35
+      x: isMobile ? -15 : 0,
+      y: !isMobile ? 10 : 0,
     },
     visible: {
       opacity: 1,
+      x: 0,
       y: 0,
       transition: {
-        duration: 0.4,
-        ease: "easeOut"
-      }
-    }
+        duration: 0.12,
+        ease: "easeOut",
+      },
+    },
   };
-
   return (
     <div className="about-page">
       <div className="container">
@@ -100,10 +100,10 @@ const About = () => {
         <div className="about-story">
           <motion.div
             className="story-content"
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
+            viewport={{ amount: 0.25 }}
+            transition={{ duration: 0.35 }}
           >
             <h2 className="story-heading">
               A decade of innovation and impact.
@@ -128,10 +128,10 @@ const About = () => {
 
           <motion.div
             className="story-image-wrapper"
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
+            viewport={{ amount: 0.25 }}
+            transition={{ duration: 0.35 }}
           >
             <img
               src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -140,61 +140,31 @@ const About = () => {
             />
           </motion.div>
         </div>
+
         {/* mission section */}
         <motion.section
-            className="mission-section"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ amount: 0.5 }}
-            transition={{ duration: 0.6 }}
-          >
+          className="mission-section"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="container mission-container">
             <span className="mission-tag">Our Mission</span>
 
             <p className="mission-text">
-              Empower organizations with innovative technology that accelerates
-              transformation, unlocks new opportunities, and drives lasting
-              impact.
+              Empower organizations with
+              <span className="mission-highlight"> innovative technology </span>
+              that accelerates transformation and drives
+              <span className="mission-highlight"> lasting impact</span>.
             </p>
+
+            <div className="mission-underline"></div>
           </div>
         </motion.section>
 
-        {/* <div className="about-story">
-                    <motion.div
-                        className="story-content"
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="story-heading">A Decade of relentless innovation.</h2>
-                        <p className="story-text">
-                            Founded in 2014, Fraylon began with a simple belief: that technology should not just support business, but drive it. What started as a boutique software studio has evolved into a global digital transformation partner for Fortune 500 companies.
-                        </p>
-                        <p className="story-text">
-                            We don't just write code; we solve complex problems. From legacy system modernization to pioneering AI agents, our work sits at the intersection of robust engineering and visionary strategy.
-                        </p>
-                        <div style={{ marginTop: '40px', paddingLeft: '20px', borderLeft: '4px solid var(--color-primary)' }}>
-                            <p style={{ fontSize: '1.5rem', fontWeight: 'bold', fontStyle: 'italic', color: 'var(--color-brand-black)' }}>
-                                "Our mission is to empower organizations to navigate the digital age with confidence and agility."
-                            </p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        className="story-image-wrapper"
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <img
-                            src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                            alt="Fraylon Team Collaboration"
-                            className="story-img"
-                            loading='lazy'
-                        />
-                    </motion.div>
-                </div> */}
-
         {/* --- Stats Section --- */}
+
         <div className="about-stats">
           <motion.section
             className="about-stats"
@@ -203,31 +173,53 @@ const About = () => {
             viewport={{ amount: 0.4 }}
             transition={{ duration: 0.6 }}
           >
-              <motion.div
-                className="stats-container"
-                variants={{
-                  hidden: {},
-                  visible: {
-                    transition: {
-                      staggerChildren: 0.25
-                    }
-                  }
-                }}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ amount: 0.4 }}
+            {/* NEW INTRO SECTION */}
+            <div className="stats-intro">
+              <span className="stats-tag">OUR IMPACT</span>
+
+              <motion.h2
+                className="stats-title"
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
               >
+                Our Journey in Numbers
+              </motion.h2>
+
+              <p className="stats-description">
+                Our growth reflects the trust of our clients and the dedication
+                of our team. Over the years, we have delivered innovative
+                solutions, built strong partnerships, and expanded our global
+                presence.
+              </p>
+            </div>
+
+            <motion.div
+              className="stats-container"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.25,
+                  },
+                },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ amount: 0.4 }}
+            >
               <motion.div
-                  className="stat-item"
-                  variants={{
-                    hidden: { opacity: 0, y: 40 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      transition: { duration: 0.6, ease: "easeOut" }
-                    }
-                  }}
-                >
+                className="stat-item"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.6, ease: "easeOut" },
+                  },
+                }}
+              >
                 <div className="stat-number">
                   <CountUp end={10} duration={2.5} enableScrollSpy />+
                 </div>
@@ -241,8 +233,8 @@ const About = () => {
                   visible: {
                     opacity: 1,
                     y: 0,
-                    transition: { duration: 0.6, ease: "easeOut" }
-                  }
+                    transition: { duration: 0.6, ease: "easeOut" },
+                  },
                 }}
               >
                 <div className="stat-number">
@@ -258,8 +250,8 @@ const About = () => {
                   visible: {
                     opacity: 1,
                     y: 0,
-                    transition: { duration: 0.6, ease: "easeOut" }
-                  }
+                    transition: { duration: 0.6, ease: "easeOut" },
+                  },
                 }}
               >
                 <div className="stat-number">
@@ -275,8 +267,8 @@ const About = () => {
                   visible: {
                     opacity: 1,
                     y: 0,
-                    transition: { duration: 0.6, ease: "easeOut" }
-                  }
+                    transition: { duration: 0.6, ease: "easeOut" },
+                  },
                 }}
               >
                 <div className="stat-number">
@@ -298,19 +290,18 @@ const About = () => {
               Driven by <span>values</span>, defined by results.
             </h2>
           </div>
+
           <motion.div
             className="values-grid"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ amount: 0.05 }}
           >
             <motion.div
               className="value-card"
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
-              }}
+              custom={0}
+              variants={cardVariants}
             >
               <FaLightbulb className="value-icon" />
               <h3>Innovation First</h3>
@@ -323,10 +314,8 @@ const About = () => {
 
             <motion.div
               className="value-card"
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
-              }}
+              custom={1}
+              variants={cardVariants}
             >
               <FaShieldAlt className="value-icon" />
               <h3>Integrity & Trust</h3>
@@ -338,10 +327,8 @@ const About = () => {
 
             <motion.div
               className="value-card"
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
-              }}
+              custom={2}
+              variants={cardVariants}
             >
               <FaUsers className="value-icon" />
               <h3>Client Success</h3>
@@ -354,10 +341,8 @@ const About = () => {
 
             <motion.div
               className="value-card"
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
-              }}
+              custom={3}
+              variants={cardVariants}
             >
               <FaRocket className="value-icon" />
               <h3>Excellence in Execution</h3>
@@ -370,10 +355,8 @@ const About = () => {
 
             <motion.div
               className="value-card"
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
-              }}
+              custom={4}
+              variants={cardVariants}
             >
               <FaHandshake className="value-icon" />
               <h3>Collaboration</h3>
@@ -385,10 +368,8 @@ const About = () => {
 
             <motion.div
               className="value-card"
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
-              }}
+              custom={5}
+              variants={cardVariants}
             >
               <FaGraduationCap className="value-icon" />
               <h3>Continuous Learning</h3>
@@ -398,12 +379,11 @@ const About = () => {
                 the curve.
               </p>
             </motion.div>
+
             <motion.div
               className="value-card"
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
-              }}
+              custom={6}
+              variants={cardVariants}
             >
               <FaCheckCircle className="value-icon" />
               <h3>Ownership & Accountability</h3>
@@ -416,10 +396,8 @@ const About = () => {
 
             <motion.div
               className="value-card"
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
-              }}
+              custom={7}
+              variants={cardVariants}
             >
               <FaHeart className="value-icon" />
               <h3>Customer-Centric Thinking</h3>
@@ -455,7 +433,7 @@ const About = () => {
           }}
         >
           <img
-            src="https://images.pexels.com/photos/373893/pexels-photo-373893.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1"
+            src="https://i.pinimg.com/1200x/c4/de/a3/c4dea33085f3492af9efae1bfeedc655.jpg"
             alt="Future City"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
             loading="lazy"

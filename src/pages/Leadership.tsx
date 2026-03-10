@@ -78,20 +78,6 @@ const Leadership = () => {
                 >
                   <span className="role-line"></span>
                   <span className="leader-role">{leader.role}</span>
-                </div>
-              </div>
-
-              {/* Info Side */}
-              <div className="leader-info">
-                <motion.div
-                  className="leader-role-wrapper"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                  <span className="role-line"></span>
-                  <span className="leader-role">{leader.role}</span>
                 </motion.div>
 
                 <motion.h3

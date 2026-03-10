@@ -63,19 +63,19 @@ const Leadership = () => {
               <div className="leader-image-wrapper-outer">
                 <div className="leader-image-accent"></div>
                 <div className="leader-image-wrapper">
-                  <img
-                    src={leader.image}
-                    alt={leader.name}
-                    className="leader-image"
-                    loading="lazy"
-                  />
+                  <img src={leader.image} alt={leader.name} className="leader-image" loading="lazy" />
                 </div>
               </div>
 
-              {/* Info */}
+              {/* Info Side */}
               <div className="leader-info">
-
-                <div className="leader-role-wrapper">
+                <motion.div
+                  className="leader-role-wrapper"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
                   <span className="role-line"></span>
                   <span className="leader-role">{leader.role}</span>
                 </div>

@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import type { Variants } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
+import { Link } from "react-router-dom";
 import CountUp from "react-countup";
 import {
   FaLightbulb,
@@ -10,13 +10,89 @@ import {
   FaHandshake,
   FaGraduationCap,
   FaCheckCircle,
-  FaHeart
-} from 'react-icons/fa';
-import './About.css';
+  FaHeart,
+} from "react-icons/fa";
+import "./About.css";
 
 const MotionLink = motion(Link);
 
 const About = () => {
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.03,
+      },
+    },
+  };
+  const isMobile = window.innerWidth < 768;
+
+  const cardVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      x: isMobile ? -15 : 0,
+      y: !isMobile ? 10 : 0,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        duration: 0.12,
+        ease: "easeOut",
+      },
+    },
+  };
+  return (
+    <div className="about-page">
+      <div className="container">
+        {/* --- Hero Section --- */}
+        <div className="about-hero">
+          <motion.span
+            className="about-tag"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Who We Are
+          </motion.span>
+
+          <motion.h1 className="about-title">
+            <motion.span
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              We are
+            </motion.span>{" "}
+            <motion.span
+              className="brand-highlight"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              Fraylon
+            </motion.span>
+            <br />
+            <motion.span
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              Architects of the Digital Future.
+            </motion.span>
+          </motion.h1>
+
+          <motion.p
+            className="about-lead"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            A global technology partner helping ambitious organizations build,
+            scale, and innovate in the digital age.
+          </motion.p>
+        </div>
 
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
@@ -207,23 +283,274 @@ const About = () => {
       <div className="stat-label">Years of Excellence</div>
     </div>
 
-    <div className="stat-item">
-      <div className="stat-number">
-        <CountUp end={150} duration={2.5} enableScrollSpy />+
-      </div>
-      <div className="stat-label">Enterprise Clients</div>
-    </div>
+        {/* mission section */}
+        <motion.section
+          className="mission-section"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="container mission-container">
+            <span className="mission-tag">Our Mission</span>
 
-    <div className="stat-item">
-      <div className="stat-number">
-        <CountUp end={12} duration={2.5} enableScrollSpy />
-      </div>
-      <div className="stat-label">Global Offices</div>
-    </div>
+            <p className="mission-text">
+              Empower organizations with
+              <span className="mission-highlight"> innovative technology </span>
+              that accelerates transformation and drives
+              <span className="mission-highlight"> lasting impact</span>.
+            </p>
 
-    <div className="stat-item">
-      <div className="stat-number">
-        <CountUp end={500} duration={2.5} enableScrollSpy />+
+            <div className="mission-underline"></div>
+          </div>
+        </motion.section>
+
+        {/* --- Stats Section --- */}
+
+        <div className="about-stats">
+          <motion.section
+            className="about-stats"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* NEW INTRO SECTION */}
+            <div className="stats-intro">
+              <span className="stats-tag">OUR IMPACT</span>
+
+              <motion.h2
+                className="stats-title"
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                Our Journey in Numbers
+              </motion.h2>
+
+              <p className="stats-description">
+                Our growth reflects the trust of our clients and the dedication
+                of our team. Over the years, we have delivered innovative
+                solutions, built strong partnerships, and expanded our global
+                presence.
+              </p>
+            </div>
+
+            <motion.div
+              className="stats-container"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.25,
+                  },
+                },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ amount: 0.4 }}
+            >
+              <motion.div
+                className="stat-item"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.6, ease: "easeOut" },
+                  },
+                }}
+              >
+                <div className="stat-number">
+                  <CountUp end={10} duration={2.5} enableScrollSpy />+
+                </div>
+                <div className="stat-label">Years of Excellence</div>
+              </motion.div>
+
+              <motion.div
+                className="stat-item"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.6, ease: "easeOut" },
+                  },
+                }}
+              >
+                <div className="stat-number">
+                  <CountUp end={150} duration={2.5} enableScrollSpy />+
+                </div>
+                <div className="stat-label">Enterprise Clients</div>
+              </motion.div>
+
+              <motion.div
+                className="stat-item"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.6, ease: "easeOut" },
+                  },
+                }}
+              >
+                <div className="stat-number">
+                  <CountUp end={12} duration={2.5} enableScrollSpy />
+                </div>
+                <div className="stat-label">Global Offices</div>
+              </motion.div>
+
+              <motion.div
+                className="stat-item"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.6, ease: "easeOut" },
+                  },
+                }}
+              >
+                <div className="stat-number">
+                  <CountUp end={500} duration={2.5} enableScrollSpy />+
+                </div>
+                <div className="stat-label">Engineers & Strategists</div>
+              </motion.div>
+            </motion.div>
+          </motion.section>
+        </div>
+      </div>
+
+      {/* --- Values Section --- */}
+      <div className="values-section">
+        <div className="container">
+          <div className="values-header">
+            <span className="about-tag">Our Core Principles</span>
+            <h2>
+              Driven by <span>values</span>, defined by results.
+            </h2>
+          </div>
+
+          <motion.div
+            className="values-grid"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.05 }}
+          >
+            <motion.div
+              className="value-card"
+              custom={0}
+              variants={cardVariants}
+            >
+              <FaLightbulb className="value-icon" />
+              <h3>Innovation First</h3>
+              <p>
+                We constantly explore emerging technologies and bold ideas to
+                build solutions that keep our clients ahead in a rapidly
+                evolving digital world.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={1}
+              variants={cardVariants}
+            >
+              <FaShieldAlt className="value-icon" />
+              <h3>Integrity & Trust</h3>
+              <p>
+                Trust is the foundation of every partnership. We operate with
+                transparency, accountability, and honesty in everything we do.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={2}
+              variants={cardVariants}
+            >
+              <FaUsers className="value-icon" />
+              <h3>Client Success</h3>
+              <p>
+                Our success is defined by the success of our clients. We deeply
+                understand their challenges and deliver solutions that create
+                measurable impact.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={3}
+              variants={cardVariants}
+            >
+              <FaRocket className="value-icon" />
+              <h3>Excellence in Execution</h3>
+              <p>
+                We believe great ideas must be backed by flawless execution. Our
+                teams focus on delivering high-quality, scalable, and reliable
+                solutions.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={4}
+              variants={cardVariants}
+            >
+              <FaHandshake className="value-icon" />
+              <h3>Collaboration</h3>
+              <p>
+                The best innovations happen when diverse minds work together. We
+                foster a culture of collaboration, respect, and shared success.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={5}
+              variants={cardVariants}
+            >
+              <FaGraduationCap className="value-icon" />
+              <h3>Continuous Learning</h3>
+              <p>
+                Technology evolves rapidly, and so do we. We encourage
+                curiosity, learning, and constant improvement to stay ahead of
+                the curve.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={6}
+              variants={cardVariants}
+            >
+              <FaCheckCircle className="value-icon" />
+              <h3>Ownership & Accountability</h3>
+              <p>
+                We take full responsibility for the solutions we build and the
+                outcomes we deliver. Every team member acts with ownership,
+                ensuring reliability, quality, and trust.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={7}
+              variants={cardVariants}
+            >
+              <FaHeart className="value-icon" />
+              <h3>Customer-Centric Thinking</h3>
+              <p>
+                Every decision begins with the customer in mind. We focus on
+                delivering meaningful experiences and long-term value for the
+                organizations we serve.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
       <div className="stat-label">Engineers & Strategists</div>
     </div>
@@ -353,64 +680,90 @@ const About = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(15, 23, 42, 0.8)' }}></div>
                 </div>
 
-                <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '800px', padding: '0 20px' }}>
-                    <h2 style={{ fontSize: '4rem', color: '#fff', marginBottom: '30px', letterSpacing: '-0.02em', lineHeight: '1.1' }}>
-                        Ready to Shape <br /> the Future?
-                    </h2>
-                    <p style={{ fontSize: '1.25rem', color: '#cbd5e1', marginBottom: '50px', lineHeight: '1.6' }}>
-                        Join a team that challenges the status quo. Discover your next career breakthrough at Fraylon.
-                    </p>
-                    <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-                        <MotionLink
-                            to="/careers"
-                            className="btn"
-                            whileTap={{ scale: 0.98 }}
-                            style={{
-                                background: '#00c6a5',
-                                color: '#0f172a',
-                                padding: '18px 45px',
-                                fontSize: '1rem',
-                                fontWeight: 'bold',
-                                border: 'none',
-                                borderRadius: '0',
-                                cursor: 'pointer',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.05em',
-                                textDecoration: 'none',
-                                display: 'inline-block',
-                                transition: 'background-color 0.3s'
-                            }}
-                        >
-                            View Open Positions
-                        </MotionLink>
-                        <MotionLink
-                            to="/leadership"
-                            className="btn-outline"
-                            whileTap={{ scale: 0.98 }}
-                            style={{
-                                borderColor: '#fff',
-                                color: '#fff',
-                                padding: '16px 45px',
-                                fontSize: '1rem',
-                                fontWeight: 'bold',
-                                border: '1px solid #fff',
-                                background: 'transparent',
-                                borderRadius: '0',
-                                cursor: 'pointer',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.05em',
-                                textDecoration: 'none',
-                                display: 'inline-block',
-                                transition: 'background-color 0.3s'
-                            }}
-                        >
-                            Meet Leadership
-                        </MotionLink>
-                    </div>
-                </div>
-            </div>
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            textAlign: "center",
+            maxWidth: "800px",
+            padding: "0 20px",
+          }}
+        >
+          <h2
+            style={{
+              fontSize: "4rem",
+              color: "#fff",
+              marginBottom: "30px",
+              letterSpacing: "-0.02em",
+              lineHeight: "1.1",
+            }}
+          >
+            Ready to Shape <br /> the Future?
+          </h2>
+          <p
+            style={{
+              fontSize: "1.25rem",
+              color: "#cbd5e1",
+              marginBottom: "50px",
+              lineHeight: "1.6",
+            }}
+          >
+            Join a team that challenges the status quo. Discover your next
+            career breakthrough at Fraylon.
+          </p>
+          <div
+            style={{ display: "flex", gap: "20px", justifyContent: "center" }}
+          >
+            <MotionLink
+              to="/careers"
+              className="btn"
+              whileTap={{ scale: 0.98 }}
+              style={{
+                background: "#00c6a5",
+                color: "#0f172a",
+                padding: "18px 45px",
+                fontSize: "1rem",
+                fontWeight: "bold",
+                border: "none",
+                borderRadius: "0",
+                cursor: "pointer",
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                textDecoration: "none",
+                display: "inline-block",
+                transition: "background-color 0.3s",
+              }}
+            >
+              View Open Positions
+            </MotionLink>
+            <MotionLink
+              to="/leadership"
+              className="btn-outline"
+              whileTap={{ scale: 0.98 }}
+              style={{
+                borderColor: "#fff",
+                color: "#fff",
+                padding: "16px 45px",
+                fontSize: "1rem",
+                fontWeight: "bold",
+                border: "1px solid #fff",
+                background: "transparent",
+                borderRadius: "0",
+                cursor: "pointer",
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                textDecoration: "none",
+                display: "inline-block",
+                transition: "background-color 0.3s",
+              }}
+            >
+              Meet Leadership
+            </MotionLink>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default About;

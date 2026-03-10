@@ -1,5 +1,19 @@
-import { leadershipData } from "../data/leadershipData";
+import { leadershipData, type Leader } from '../data/leadershipData';
 
-export const getLeadership = async () => {
-  return Promise.resolve(leadershipData);
+// ─── Types ───────────────────────────────────────────────────────────────────
+
+export interface LeadershipResponse {
+    success: boolean;
+    count: number;
+    data: Leader[];
+}
+
+// ─── API ─────────────────────────────────────────────────────────────────────
+
+export const getLeadership = async (): Promise<LeadershipResponse> => {
+    return Promise.resolve({
+        success: true,
+        count: leadershipData.length,
+        data: leadershipData,
+    });
 };

@@ -13,6 +13,58 @@ const Industries = () => {
 
     return (
         <section className="industries-section">
+            {/* Mobile layout: visible only on smaller screens */}
+            <div className="industries-mobile">
+                <div className="ind-mobile-header">
+                    <span className="ind-overline">Industries</span>
+                    <h2 className="ind-mobile-title">End-to-End Domain Reach</h2>
+                </div>
+                <div className="ind-mobile-pills">
+                    {displayKeys.map((key) => {
+                        const item = industriesData[key];
+                        const isActive = key === activeKey;
+                        return (
+                            <button
+                                key={key}
+                                type="button"
+                                className={`ind-mobile-pill ${isActive ? 'active' : ''}`}
+                                onClick={() => setActiveKey(key)}
+                            >
+                                {item.title}
+                            </button>
+                        );
+                    })}
+                </div>
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={activeKey}
+                        className="ind-mobile-content"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.25 }}
+                    >
+                        <div className="ind-mobile-image-wrap">
+                            <img src={activeIndustry.image} alt={activeIndustry.title} loading="lazy" />
+                            <div className="ind-image-overlay" />
+                        </div>
+                        <h3 className="ind-mobile-heading">{activeIndustry.title}</h3>
+                        <p className="ind-mobile-desc">{activeIndustry.description}</p>
+                        <ul className="ind-cap-list ind-mobile-caps">
+                            {activeIndustry.solutions.slice(0, 4).map((sol, idx) => (
+                                <li key={idx}>
+                                    <FaCheckCircle className="ind-check-icon" />
+                                    <span>{sol.title}</span>
+                                </li>
+                            ))}
+                        </ul>
+                        <Link to={`/ind/${activeKey}`}>
+                            <button type="button" className="btn-deep-dive">Deep Dive Solutions</button>
+                        </Link>
+                    </motion.div>
+                </AnimatePresence>
+            </div>
+
             <div className="industries-wrapper">
                 {/* Left Column: Image */}
                 <div className="ind-column ind-image-col">

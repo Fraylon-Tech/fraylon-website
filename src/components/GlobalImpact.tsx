@@ -4,7 +4,7 @@ import './GlobalImpact.css';
 const GlobalImpact = () => {
     return (
         <section className="impact-section">
-            <div className="impact-container-full" style={{ padding: '0 60px' }}>
+            <div className="impact-container-full">
                 <div className="section-header" style={{ border: 'none', marginBottom: '0' }}>
                     <div>
                         <span className="section-label">GLOBAL FOOTPRINT</span>

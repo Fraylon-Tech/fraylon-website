@@ -47,14 +47,14 @@ const Careers = () => {
             <div className="culture-section">
                 <div className="section-header">
                     <h2 className="section-title">Why Join Us?</h2>
-                    <p style={{ color: '#94a3b8', maxWidth: '600px' }}>
+                    <p style={{ color: 'var(--text-muted)', maxWidth: '600px' }}>
                         We don't just offer a job; we offer a platform for you to do the best work of your life.
                     </p>
                 </div>
 
                 <div className="values-grid">
                     <motion.div
-                        className="value-card"
+                        className="value-card interactive-card"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -66,7 +66,7 @@ const Careers = () => {
                     </motion.div>
 
                     <motion.div
-                        className="value-card"
+                        className="value-card interactive-card"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -78,7 +78,7 @@ const Careers = () => {
                     </motion.div>
 
                     <motion.div
-                        className="value-card"
+                        className="value-card interactive-card"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -90,7 +90,7 @@ const Careers = () => {
                     </motion.div>
 
                     <motion.div
-                        className="value-card"
+                        className="value-card interactive-card"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -107,28 +107,28 @@ const Careers = () => {
             <div className="hiring-process container">
                 <div className="section-header">
                     <h2 className="section-title">How We Hire</h2>
-                    <p style={{ color: '#94a3b8', maxWidth: '600px', margin: '0 auto' }}>
+                    <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto' }}>
                         Our process is designed to be transparent, respectful of your time, and focused on your potential.
                     </p>
                 </div>
 
-                <div className="process-steps">
-                    <motion.div className="process-step" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
+                <div className="process-steps ">
+                    <motion.div className="process-step interactive-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
                         <span className="step-number">01</span>
                         <h4>Application</h4>
                         <p>Submit your profile. We review every application manually—no bots.</p>
                     </motion.div>
-                    <motion.div className="process-step" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
+                    <motion.div className="process-step interactive-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
                         <span className="step-number">02</span>
                         <h4>Culture Chat</h4>
                         <p>A 30-min call to discuss your goals and see if our values align.</p>
                     </motion.div>
-                    <motion.div className="process-step" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+                    <motion.div className="process-step interactive-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
                         <span className="step-number">03</span>
                         <h4>Technical Deep Dive</h4>
                         <p>A practical, take-home challenge or system design discussion. No whiteboard haze.</p>
                     </motion.div>
-                    <motion.div className="process-step" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
+                    <motion.div className="process-step interactive-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
                         <span className="step-number">04</span>
                         <h4>The Offer</h4>
                         <p>We move fast. If it's a match, expect a competitive offer within 48 hours.</p>
@@ -140,7 +140,7 @@ const Careers = () => {
             <div id="open-positions" className="positions-section">
                 <div className="section-header">
                     <h2 className="section-title">Open Positions</h2>
-                    <p style={{ color: '#94a3b8' }}>
+                    <p style={{ color: 'var(--text-muted)' }}>
                         Ready to make your mark? Check out our current openings below.
                     </p>
                 </div>

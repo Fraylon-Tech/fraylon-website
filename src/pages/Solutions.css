@@ -1,8 +1,7 @@
 /* Existing Styles... */
 .solutions-page {
-    padding-top: 140px;
-    padding-bottom: 120px;
-    min-height: 100vh;
+    padding-top: calc(var(--nav-height) + 40px);
+    padding-bottom: 80px;
 }
 
 /* Overview Mode (List of Solutions) */
@@ -48,7 +47,7 @@
     background: var(--bg-surface);
     border: 1px solid rgba(0, 0, 0, 0.05);
     padding: 40px;
-    border-radius: 0;
+    border-radius: 12px;
     height: 100%;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     position: relative;
@@ -159,12 +158,12 @@
     background: var(--bg-surface);
     border: 1px solid var(--border-light);
     padding: 30px;
-    border-radius: 8px;
+    border-radius: 12px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .capability-card:hover {
-    background: #fff;
+    background: var(--bg-surface);
     box-shadow: var(--shadow-sm);
     border-color: var(--color-primary);
 }
@@ -215,7 +214,7 @@
 .detail-cta-box {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 60px;
     text-align: center;
 }
@@ -399,7 +398,7 @@
     padding: 12px 24px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
+    border-radius: 12px;
     color: var(--text-secondary);
     font-size: 1.1rem;
     font-weight: 500;
@@ -480,7 +479,7 @@
 
 /* Client Testimonial */
 .testimonial-section {
-    margin: 80px 0;
+    margin: 0;
     padding: 60px;
     background: linear-gradient(135deg, var(--bg-surface) 0%, rgba(56, 189, 248, 0.05) 100%);
     border-radius: 16px;
@@ -567,7 +566,7 @@
 }
 
 .comparison-table th {
-    color: #94a3b8;
+    color: var(--text-muted);
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.85rem;
@@ -717,7 +716,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     padding-top: 0;
     /* Moved up */
 }
@@ -803,7 +802,8 @@
 
 /* Sections General Polish */
 .solution-section {
-    margin-bottom: 120px;
+    padding: 80px 0;
+    margin: 0;
 }
 
 .section-header-centered {
@@ -841,7 +841,7 @@
     position: sticky;
     top: 0;
     z-index: 40;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-light);
@@ -849,19 +849,18 @@
 }
 
 .inner-nav-container {
-    max-width: 1000px;
-    /* Tighter width for tabs */
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
-    /* Center the tabs */
-    gap: 0;
+    justify-content: flex-start;
+    gap: 16px;              /* spacing between tabs */
     padding: 0 20px;
     overflow-x: auto;
     scrollbar-width: none;
-    /* Firefox */
     -ms-overflow-style: none;
-    /* IE/Edge */
+}
+.inner-nav-link {
+    flex-shrink: 0;
 }
 
 .inner-nav-container::-webkit-scrollbar {
@@ -906,7 +905,7 @@
    ========================================= */
 .tech-stack-section {
     padding: 0;
-    margin-bottom: 120px;
+    margin-bottom: 100px;
     background: transparent;
     border: none;
     border-radius: 0;
@@ -945,7 +944,7 @@
 
 .tech-tag {
     padding: 24px 40px;
-    background: #fff;
+    background: var(--bg-surface);
     border: 1px solid var(--border-light);
     border-radius: 8px;
     color: var(--text-main);
@@ -1132,7 +1131,7 @@
 }
 
 .faq-item:hover {
-    background: #fff;
+    background: var(--bg-surface);
     border-color: var(--color-primary);
     box-shadow: var(--shadow-sm);
 }
@@ -1144,7 +1143,7 @@
 }
 
 .faq-item p {
-    color: #94a3b8;
+    color: var(--text-muted);
     line-height: 1.6;
 }
 
@@ -1202,7 +1201,7 @@
 }
 
 .module-card:hover {
-    background: #fff;
+    background: var(--bg-surface);
     border-color: var(--color-primary);
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);

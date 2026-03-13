@@ -72,18 +72,17 @@ const ServiceCard = ({ service, index }: { service: ServiceItem, index: number }
     return (
         <motion.div
             ref={ref}
-            className="service-card"
+            className="service-card "
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ delay: index * 0.1, duration: 0.8 }}
         >
             <Link
-                to={service.link}
-                className="service-card-link"
-                aria-label={`Learn more about ${service.title}`}
-                style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', height: '100%', textDecoration: 'none', color: 'inherit' }}
-            >
+  to={service.link}
+  className="service-card-link"
+  aria-label={`Learn more about ${service.title}`}
+>
                 <div className="service-icon">{service.icon}</div>
                 <div className="service-content">
                     <h3>{service.title}</h3>
@@ -116,7 +115,7 @@ const ServiceCard = ({ service, index }: { service: ServiceItem, index: number }
 
 const Services = () => {
     return (
-        <section className="services-section">
+        <section className="services-section section">
             <div className="container">
                 <div className="section-header">
                     <div>

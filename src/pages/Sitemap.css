@@ -110,7 +110,7 @@
 .sitemap-search-input:focus {
     outline: none;
     border-color: var(--color-primary);
-    background: #fff;
+    background: var(--bg-surface);
     box-shadow: var(--shadow-lg);
     transform: translateY(-2px);
 }
@@ -125,7 +125,7 @@
 }
 
 .sitemap-card {
-    background: #fff;
+    background: var(--bg-surface);
     border: 1px solid var(--border-light);
     padding: 40px;
     border-radius: 0;

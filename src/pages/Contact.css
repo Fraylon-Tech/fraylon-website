@@ -76,7 +76,7 @@
 
 /* Form Section */
 .contact-form-card {
-    background: #fff;
+    background: var(--bg-surface);
     padding: 50px;
     border-radius: 16px;
     border: 1px solid var(--border-light);

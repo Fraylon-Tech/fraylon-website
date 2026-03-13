@@ -18,7 +18,7 @@ const Insights = () => {
                     <span className="section-label">THOUGHT LEADERSHIP</span>
                     <h2 className="section-title">Perspectives on The Future</h2>
                 </div>
-                <Link to="/insights" className="btn btn-outline" style={{ display: 'inline-flex', alignItems: 'center' }}>
+                <Link to="/insights" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center' }}>
                     View All Insights <FaArrowRight style={{ marginLeft: '10px' }} />
                 </Link>
             </div>

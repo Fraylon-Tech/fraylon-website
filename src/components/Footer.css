@@ -1,6 +1,6 @@
 /* Footer.css */
 .footer {
-    background: linear-gradient(to bottom, #0f172a, #0b1120);
+    background: linear-gradient(to bottom, var(--text-main), #0b1120);
     color: #e2e8f0;
     padding: clamp(60px, 10vw, 90px) clamp(24px, 5vw, 60px) 40px;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -118,7 +118,7 @@
 
 .newsletter-input {
     flex: 1;
-    background: #fff;
+    background: var(--bg-surface);
     border: none;
     padding: 10px 14px;
     color: var(--text-main);
@@ -151,7 +151,7 @@
     margin-top: 25px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 25px;
-    color: #94a3b8;
+    color: var(--text-muted);
     line-height: 1.6;
     font-size: 14px;
     display: flex;

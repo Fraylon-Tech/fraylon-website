@@ -5,7 +5,7 @@ import './Careers.css';
 
 const Careers = () => {
     return (
-        <section className="careers-section">
+        <section className="careers-section ">
             <div className="careers-container">
 
                 <motion.div

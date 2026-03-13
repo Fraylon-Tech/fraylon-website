@@ -29,7 +29,7 @@
 
 .section-title {
     font-size: 2.5rem;
-    color: #0f172a;
+    color: var(--text-main);
     /* Back to dark text */
     max-width: 600px;
     line-height: 1.2;
@@ -44,18 +44,14 @@
 }
 
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    gap: 1px;
-    counter-reset: service-counter;
-    position: relative;
-    /* Fix for framer-motion scroll calculations */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
 }
 
 .service-card {
     padding: 60px 40px;
-    background: #0f172a;
+    background: var(--text-main);
     /* border-right: 1px solid var(--border-light); */
     /* border-bottom: 1px solid var(--border-light); */
     /* border: 1px solid rgba(255, 255, 255, 0.1); Removed border in favor of gap */

@@ -1,178 +1,131 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaArrowRight, FaChevronRight } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FaBrain, FaCloud, FaShieldAlt, FaDatabase, FaArrowDown } from 'react-icons/fa';
 import './Hero.css';
 
-const slides = [
-    {
-        id: '01',
-        tag: "FEATURED INSIGHT",
-        headlinePrefix: "Resilience",
-        highlight: "Motion.",
-        lead: "How legacy enterprises are outpacing digital natives by adopting agentic workflows and vertical cloud infrastructure.",
-        btnText: "Read the Report",
-        btnLink: "/insights",
-        links: [
-            { text: "Cloud Solutions", url: "/services/digital-transformation" },
-            { text: "AI Governance", url: "/services/ai-integration" }
-        ],
-        nextTitle: "Sustainable Banking Infrastructure",
-        video: "https://videos.pexels.com/video-files/3129671/3129671-hd_1920_1080_30fps.mp4"
-    },
-    {
-        id: '02',
-        tag: "TECH STRATEGY",
-        headlinePrefix: "Digital",
-        highlight: "Evolution.",
-        lead: "Modernizing core systems with scalable microservices and cloud-native architectures for the future-proof enterprise.",
-        btnText: "Explore Strategy",
-        btnLink: "/services/tech-consulting",
-        links: [
-            { text: "Core Modernization", url: "/services/digital-transformation" },
-            { text: "Digital Engineering", url: "/services/software-dev" }
-        ],
-        nextTitle: "Adaptive Security Frameworks",
-        video: "https://videos.pexels.com/video-files/3130182/3130182-uhd_2560_1440_30fps.mp4"
-    },
-    {
-        id: '03',
-        tag: "INNOVATION LAB",
-        headlinePrefix: "Quantum",
-        highlight: "Leap.",
-        lead: "Harnessing the power of high-performance computing to solve the most complex logistical challenges in global supply chains.",
-        btnText: "View Case Study",
-        btnLink: "/projects",
-        links: [
-            { text: "Supply Chain", url: "/solutions/supply-chain" },
-            { text: "Quantum Computing", url: "/insights" }
-        ],
-        nextTitle: "Resilience In Motion.",
-        video: "https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_25fps.mp4"
-    }
-];
-
 const Hero = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
-
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
-    };
+    const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+    const [isMoving, setIsMoving] = useState(false);
 
     useEffect(() => {
-        const timer = setInterval(nextSlide, 8000);
-        return () => clearInterval(timer);
-    }, []);
-
-    const slide = slides[currentSlide];
+        if (!isMoving) return;
+        const timeout = setTimeout(() => setIsMoving(false), 150);
+        return () => clearTimeout(timeout);
+    }, [isMoving, cursorPos]);
 
     return (
-        <section className="hero-wrapper">
-            <div className="hero-split-layout">
+        <section
+            className="hero-wrapper hero-digital-system"
+            onMouseMove={(e) => {
+                const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+                const localX = e.clientX - rect.left;
+                const localY = e.clientY - rect.top;
+                setCursorPos({
+                    x: localX,
+                    y: localY,
+                });
+                setIsMoving(true);
+            }}
+        >
+            {/* Background gradient mesh */}
+            <div className="hero-base-gradient" />
 
-                {/* Left Content Column (Solid Sidebar) */}
-                <div className="hero-left-panel">
-                    <div className="content-inner">
-                        <AnimatePresence initial={false}>
-                            <motion.div
-                                key={currentSlide}
-                                initial={{ opacity: 0, x: -25 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: 25 }}
-                                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                            >
-                                <span className="insight-tag">{slide.tag}</span>
+            {/* Soft network video layer */}
+            <div className="hero-video-layer">
+                <video autoPlay muted loop playsInline>
+                    <source src="https://videos.pexels.com/video-files/3129671/3129671-hd_1920_1080_30fps.mp4" type="video/mp4" />
+                </video>
+            </div>
 
-                                <h1 className="hero-headline">
-                                    {slide.headlinePrefix} <br />
-                                    In <span className="highlight-text">{slide.highlight}</span>
-                                </h1>
+            {/* Cursor glow */}
+            <motion.div
+                className="hero-cursor-glow"
+                animate={{
+                    x: cursorPos.x - 150,
+                    y: cursorPos.y - 150,
+                    opacity: isMoving ? 0.5 : 0.25,
+                    scale: isMoving ? 1 : 0.9,
+                }}
+                transition={{
+                    type: 'spring',
+                    stiffness: 120,
+                    damping: 30,
+                    mass: 0.6,
+                }}
+            />
 
-                                <p className="hero-lead-text">
-                                    {slide.lead}
-                                </p>
+            {/* Content & layout */}
+            <div className="hero-digital-inner">
+                <div className="hero-layout">
+                    <div>
+                        <p className="hero-kicker">FRAYLON</p>
+                        <h1 className="hero-title">
+                            Engineering the digital
+                            <br />
+                            <span className="hero-title-emphasis">INFRASTRUCTURE</span>
+                            <br />
+                            <span className="hero-title-soft">of tomorrow.</span>
+                        </h1>
+                        <p className="hero-subcopy">
+                            We design scalable AI, cloud, and cybersecurity systems for modern enterprises building the next generation of digital products.
+                        </p>
 
-                                <div className="cta-container">
-                                    <Link to={slide.btnLink}>
-                                        <button className="btn-primary-solid">
-                                            {slide.btnText}
-                                            <FaArrowRight className="btn-icon" />
-                                        </button>
-                                    </Link>
-                                    <div className="link-group">
-                                        {slide.links.map((link, idx) => (
-                                            <Link key={idx} to={link.url} className="text-link">{link.text}</Link>
-                                        ))}
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </AnimatePresence>
-                    </div>
-
-                    {/* Bottom aligned Navigation Indicators */}
-                    <div className="slide-indicators">
-                        {slides.map((s, idx) => (
-                            <span
-                                key={s.id}
-                                className={currentSlide === idx ? "active-dot" : "dot"}
-                                onClick={() => setCurrentSlide(idx)}
-                                style={{ cursor: 'pointer' }}
-                            >
-                                {s.id}
-                            </span>
-                        ))}
-                        <div className="dots-line">
-                            <motion.div
-                                className="line-progress"
-                                initial={{ width: 0 }}
-                                animate={{ width: "100%" }}
-                                key={currentSlide}
-                                transition={{ duration: 8, ease: "linear" }}
-                            />
+                        <div className="hero-cta-row">
+                            <Link to="/solutions">
+                                <button className="btn-primary-solid">Explore capabilities</button>
+                            </Link>
+                            <Link to="/contact">
+                                <button className="btn-outline-ghost">Start a project</button>
+                            </Link>
                         </div>
-                    </div>
-                </div>
 
-                {/* Right Visual Column */}
-                <div className="hero-right-panel" onClick={nextSlide}>
-                    <div className="video-container">
-                        <AnimatePresence>
-                            <motion.video
-                                key={currentSlide}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 0.85 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 1.5 }}
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className="hero-video"
-                            >
-                                <source src={slide.video} type="video/mp4" />
-                            </motion.video>
-                        </AnimatePresence>
-                        <div className="video-overlay-grad"></div>
+                        <div className="hero-meta">
+                            <span>
+                                <FaBrain className="hero-meta-icon" />
+                                AI Systems
+                            </span>
+                            <span>
+                                <FaCloud className="hero-meta-icon" />
+                                Cloud Infrastructure
+                            </span>
+                            <span>
+                                <FaShieldAlt className="hero-meta-icon" />
+                                Cybersecurity
+                            </span>
+                            <span>
+                                <FaDatabase className="hero-meta-icon" />
+                                Data Platforms
+                            </span>
+                        </div>
+
+                        <p className="hero-trust">
+                            <strong>Trusted by teams</strong> building the next generation of digital systems.
+                        </p>
                     </div>
 
-                    {/* Floating 'Next' Teaser Card */}
                     <motion.div
-                        className="next-insight-card"
-                        key={`next-${currentSlide}`}
-                        initial={{ opacity: 0, y: 50 }}
+                        className="hero-visual"
+                        initial={{ opacity: 0, y: 24 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            nextSlide();
-                        }}
+                        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        <span className="mini-label">UP NEXT</span>
-                        <h4>{slides[(currentSlide + 1) % slides.length].headlinePrefix} In {slides[(currentSlide + 1) % slides.length].highlight}</h4>
-                        <FaChevronRight className="card-icon" />
+                        <div className="hero-visual-card">
+                            <div className="hero-visual-tag">LIVE SYSTEM VIEW</div>
+                            <div className="hero-visual-title">Global infrastructure health</div>
+                            <div className="hero-visual-meta">
+                                128 regions • 4.2M events / min • 99.99% uptime
+                            </div>
+                            <div className="hero-visual-orbit" />
+                        </div>
                     </motion.div>
                 </div>
+            </div>
 
+            {/* Scroll hint */}
+            <div className="hero-scroll-hint">
+                <span>Scroll</span>
+                <FaArrowDown className="hero-scroll-icon" />
             </div>
         </section>
     );

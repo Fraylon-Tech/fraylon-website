@@ -13,7 +13,7 @@ const PageLoading = () => (
     <motion.div
       animate={{ opacity: [0.3, 1, 0.3], scale: [0.98, 1, 0.98] }}
       transition={{ duration: 1.5, repeat: Infinity }}
-      style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '0.2em', color: '#0f172a' }}
+      style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '0.2em', color: 'var(--text-main)' }}
     >
       FRAYLON
     </motion.div>

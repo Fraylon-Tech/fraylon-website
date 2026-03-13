@@ -127,7 +127,7 @@ const Solutions = () => {
 
     return (
         solution ? (
-            <div className="solutions-page container">
+            <div className="solutions-page container section">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -208,7 +208,7 @@ const Solutions = () => {
                         </nav>
                     </div>
                     <div id="tech-stack" className="solution-section tech-stack-section">
-                        <h2 style={{ fontSize: '1.2rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Orchestrated Technology</h2>
+                        <h2 style={{ fontSize: '1.2rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Orchestrated Technology</h2>
                         <div className="tech-grid">
                             {solution.techStack.map((tech, i) => {
                                 const mapEntry = techIconMap[tech] || techIconMap[tech.split(' ')[0]];
@@ -244,7 +244,7 @@ const Solutions = () => {
 
                     {/* The Challenge (Real World Scenario) */}
                     <div id="challenge" className="solution-section challenge-section">
-                        <h2 className="section-subtitle">The Challenge</h2>
+                       <h2 className="section-title">The Challenge</h2>
                         <div className="challenge-container">
                             <div className="challenge-card problem">
                                 <h3><FaExclamationCircle style={{ color: '#ef4444', marginRight: '10px' }} /> The Problem</h3>
@@ -262,7 +262,7 @@ const Solutions = () => {
 
                     {/* Architecture Blueprint */}
                     <div id="architecture" className="solution-section architecture-section">
-                        <h2 className="section-subtitle">Reference Architecture</h2>
+                        <h2 className="section-title">Reference Architecture</h2>
                         <div className="blueprint-card">
                             <h3>{solution.architecture.title}</h3>
                             <p>{solution.architecture.description}</p>
@@ -276,13 +276,13 @@ const Solutions = () => {
 
 
                     {/* Capabilities Section */}
-                    <div id="capabilities" className="capabilities-section">
-                        <h2 className="section-subtitle">Capabilities</h2>
+                    <div id="capabilities" className="capabilities-section solution-section">
+                        <h2 className="section-title">Capabilities</h2>
                         <div className="capabilities-grid">
                             {solution.capabilities.map((cap, idx) => (
                                 <motion.div
                                     key={idx}
-                                    className="capability-card"
+                                    className="capability-card interactive-card"
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
@@ -298,10 +298,10 @@ const Solutions = () => {
                     {/* NEW: Detailed Features / Modules Section */}
                     {solution.detailedFeatures && (
                         <div id="detailed-features" className="detailed-features-section solution-section">
-                            <h2 className="section-subtitle">Core Modules</h2>
+                            <h2 className="section-title">Core Modules</h2>
                             <div className="modules-grid">
                                 {solution.detailedFeatures.map((feat, idx) => (
-                                    <div key={idx} className="module-card">
+                                    <div key={idx} className="module-card interactive-card">
                                         <div className="module-number-bg">0{idx + 1}</div>
                                         <div className="module-content">
                                             <h3>{feat.title}</h3>
@@ -314,8 +314,8 @@ const Solutions = () => {
                     )}
 
                     {/* Methodology Section */}
-                    <div id="process" className="methodology-section">
-                        <h2 className="section-subtitle">The Process</h2>
+                    <div id="process" className="methodology-section solution-section">
+                        <h2 className="section-title">The Process</h2>
                         <div className="methodology-steps">
                             {solution.methodology.map((step, idx) => (
                                 <div key={idx} className="method-step">
@@ -328,8 +328,8 @@ const Solutions = () => {
                     </div>
 
                     {/* Success Stories Section */}
-                    <div id="case-studies" className="case-studies-section">
-                        <h2 className="section-subtitle">Real Impact</h2>
+                    <div id="case-studies" className="case-studies-section solution-section">
+                        <h2 className="section-title">Real Impact</h2>
                         <div className="cases-grid">
                             {solution.caseStudies.map((story, idx) => (
                                 <motion.div
@@ -355,7 +355,7 @@ const Solutions = () => {
 
                     {/* FAQ Section */}
                     <div id="faq" className="solution-section faq-section">
-                        <h2 className="section-subtitle">Common Questions</h2>
+                        <h2 className="section-title">Common Questions</h2>
                         <div className="faq-grid">
                             {solution.faq.map((item, i) => (
                                 <div key={i} className="faq-item">
@@ -367,8 +367,8 @@ const Solutions = () => {
                     </div>
 
                     {/* Comparison Table */}
-                    <div id="comparison" className="comparison-section">
-                        <h2 className="section-subtitle">Why Fraylon?</h2>
+                    <div id="comparison" className="comparison-section solution-section">
+                        <h2 className="section-title">Why Fraylon?</h2>
                         <table className="comparison-table">
                             <thead>
                                 <tr>
@@ -382,7 +382,7 @@ const Solutions = () => {
                                     <tr key={i}>
                                         <td className="feature-col">{row.feature}</td>
                                         <td>{row.fraylon}</td>
-                                        <td style={{ color: '#64748b' }}>{row.others}</td>
+                                        <td style={{ color: 'var(--text-secondary)' }}>{row.others}</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -390,7 +390,7 @@ const Solutions = () => {
                     </div>
 
                     {/* Certifications */}
-                    <div className="certifications-bar">
+                    <div className="certifications-bar solution-section">
                         {solution.certifications.map((cert, i) => (
                             <div key={i} className="cert-badge">
                                 <FaCertificate className="cert-icon" /> {cert}
@@ -399,7 +399,7 @@ const Solutions = () => {
                     </div>
 
                     {/* Testimonial */}
-                    <div className="testimonial-section">
+                    <div className="testimonial-section solution-section">
                         <FaQuoteLeft className="quote-icon" />
                         <p className="testimonial-text">"{solution.testimonial.quote}"</p>
                         <div className="testimonial-author">
@@ -418,14 +418,14 @@ const Solutions = () => {
                         <p>
                             No sales fluff. Just a conversation about your architecture and where you want to take it.
                         </p>
-                        <Link to="/contact" className="consult-cta-btn">Book an Engineering Consult <FaArrowRight style={{ fontSize: '0.9em' }} /></Link>
+                        <Link to="/contact" className="btn btn-primary">Book an Engineering Consult <FaArrowRight style={{ fontSize: '0.9em' }} /></Link>
                     </motion.div>
                 </motion.div>
             </div>
         ) : (
             /* List View */
             <>
-                <div className="solutions-header">
+                <div className="solutions-header container">
                     <h1 className="page-title">Services & Solutions</h1>
                     <p className="page-subtitle">
                         We build systems that matter. From cloud migration to predictive AI, we deliver engineering excellence.
@@ -438,7 +438,7 @@ const Solutions = () => {
                         return (
                             <Link to={`/solutions/${key}`} key={key} className="solution-card-link">
                                 <motion.div
-                                    className="solution-card"
+                                    className="solution-card interactive-card"
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: index * 0.1 }}

@@ -18,27 +18,31 @@ const MotionLink = motion(Link);
 
 const About = () => {
   const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: {},
     visible: {
-      opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.03,
       },
     },
   };
+  const isMobile = window.innerWidth < 768;
 
   const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: {
+      opacity: 0,
+      x: isMobile ? -15 : 0,
+      y: !isMobile ? 10 : 0,
+    },
     visible: {
       opacity: 1,
+      x: 0,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.12,
         ease: "easeOut",
       },
     },
   };
-
   return (
     <div className="about-page">
       <div className="container">
@@ -91,40 +95,53 @@ const About = () => {
         </div>
 
         {/* --- Story Section --- */}
+
+        {/* --- Story Section --- */}
         <div className="about-story">
           <motion.div
             className="story-content"
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ amount: 0.25 }}
+            transition={{ duration: 0.35 }}
           >
-            <h2 className="story-heading">A Decade of relentless innovation.</h2>
+            <h2 className="story-heading">
+              A decade of innovation and impact.
+            </h2>
+
             <p className="story-text">
-              Founded in 2014, Fraylon began with a simple belief: that technology should not just support business, but drive it. What started as a boutique software studio has evolved into a global digital transformation partner for Fortune 500 companies.
+              Founded in 2014, Fraylon began with a vision to help organizations
+              harness the full power of technology. What started as a small team
+              of passionate engineers has grown into a trusted global partner
+              delivering digital transformation for enterprises around the
+              world.
             </p>
+
             <p className="story-text">
-              We don't just write code; we solve complex problems. From legacy system modernization to pioneering AI agents, our work sits at the intersection of robust engineering and visionary strategy.
+              At Fraylon, we believe technology should be a catalyst for growth
+              and innovation. From modernizing legacy systems to building
+              intelligent AI-driven platforms, our work combines deep technical
+              expertise with strategic thinking to solve real business
+              challenges.
             </p>
-            <div className="story-highlight">
-                "Our mission is to empower organizations to navigate the digital age with confidence and agility."
-            </div>
           </motion.div>
+
           <motion.div
             className="story-image-wrapper"
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ amount: 0.25 }}
+            transition={{ duration: 0.35 }}
           >
             <img
               src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="Fraylon Team Collaboration"
               className="story-img"
-              loading="lazy"
             />
           </motion.div>
         </div>
 
-        {/* --- Mission Section --- */}
+        {/* mission section */}
         <motion.section
           className="mission-section"
           initial={{ opacity: 0, scale: 0.95 }}
@@ -132,37 +149,51 @@ const About = () => {
           viewport={{ amount: 0.5 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="mission-container">
+          <div className="container mission-container">
             <span className="mission-tag">Our Mission</span>
+
             <p className="mission-text">
               Empower organizations with
               <span className="mission-highlight"> innovative technology </span>
               that accelerates transformation and drives
               <span className="mission-highlight"> lasting impact</span>.
             </p>
+
             <div className="mission-underline"></div>
           </div>
         </motion.section>
 
         {/* --- Stats Section --- */}
+
         <div className="about-stats">
-          <div className="container">
-            <motion.div
-              className="stats-intro"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ amount: 0.4 }}
-              transition={{ duration: 0.6 }}
-            >
+          <motion.section
+            className="about-stats"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* NEW INTRO SECTION */}
+            <div className="stats-intro">
               <span className="stats-tag">OUR IMPACT</span>
-              <h2 className="stats-title">Our Journey in Numbers</h2>
+
+              <motion.h2
+                className="stats-title"
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                Our Journey in Numbers
+              </motion.h2>
+
               <p className="stats-description">
                 Our growth reflects the trust of our clients and the dedication
                 of our team. Over the years, we have delivered innovative
                 solutions, built strong partnerships, and expanded our global
                 presence.
               </p>
-            </motion.div>
+            </div>
 
             <motion.div
               className="stats-container"
@@ -170,7 +201,7 @@ const About = () => {
                 hidden: {},
                 visible: {
                   transition: {
-                    staggerChildren: 0.2,
+                    staggerChildren: 0.25,
                   },
                 },
               }}
@@ -178,29 +209,81 @@ const About = () => {
               whileInView="visible"
               viewport={{ amount: 0.4 }}
             >
-              {[
-                { end: 10, label: "Years of Excellence", suffix: "+" },
-                { end: 150, label: "Enterprise Clients", suffix: "+" },
-                { end: 12, label: "Global Offices", suffix: "" },
-                { end: 500, label: "Engineers & Strategists", suffix: "+" },
-              ].map((stat, i) => (
-                <motion.div
-                  key={i}
-                  className="stat-item"
-                  variants={cardVariants}
-                >
-                  <div className="stat-number">
-                    <CountUp end={stat.end} duration={2.5} enableScrollSpy />{stat.suffix}
-                  </div>
-                  <div className="stat-label">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
+              <motion.div
+                className="stat-item"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.6, ease: "easeOut" },
+                  },
+                }}
+              >
+                <div className="stat-number">
+                  <CountUp end={10} duration={2.5} enableScrollSpy />+
+                </div>
+                <div className="stat-label">Years of Excellence</div>
+              </motion.div>
 
-        {/* --- Values Section --- */}
-        <div className="values-section">
+              <motion.div
+                className="stat-item"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.6, ease: "easeOut" },
+                  },
+                }}
+              >
+                <div className="stat-number">
+                  <CountUp end={150} duration={2.5} enableScrollSpy />+
+                </div>
+                <div className="stat-label">Enterprise Clients</div>
+              </motion.div>
+
+              <motion.div
+                className="stat-item"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.6, ease: "easeOut" },
+                  },
+                }}
+              >
+                <div className="stat-number">
+                  <CountUp end={12} duration={2.5} enableScrollSpy />
+                </div>
+                <div className="stat-label">Global Offices</div>
+              </motion.div>
+
+              <motion.div
+                className="stat-item"
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.6, ease: "easeOut" },
+                  },
+                }}
+              >
+                <div className="stat-number">
+                  <CountUp end={500} duration={2.5} enableScrollSpy />+
+                </div>
+                <div className="stat-label">Engineers & Strategists</div>
+              </motion.div>
+            </motion.div>
+          </motion.section>
+        </div>
+      </div>
+
+      {/* --- Values Section --- */}
+      <div className="values-section">
+        <div className="container">
           <div className="values-header">
             <span className="about-tag">Our Core Principles</span>
             <h2>
@@ -215,117 +298,206 @@ const About = () => {
             whileInView="visible"
             viewport={{ amount: 0.05 }}
           >
-            {[
-              { icon: FaLightbulb, title: "Innovation First", desc: "We constantly explore emerging technologies and bold ideas to build solutions that keep our clients ahead in a rapidly evolving digital world." },
-              { icon: FaShieldAlt, title: "Integrity & Trust", desc: "Trust is the foundation of every partnership. We operate with transparency, accountability, and honesty in everything we do." },
-              { icon: FaUsers, title: "Client Success", desc: "Our success is defined by the success of our clients. We deeply understand their challenges and deliver solutions that create measurable impact." },
-              { icon: FaRocket, title: "Excellence in Execution", desc: "We believe great ideas must be backed by flawless execution. Our teams focus on delivering high-quality, scalable, and reliable solutions." },
-              { icon: FaHandshake, title: "Collaboration", desc: "The best innovations happen when diverse minds work together. We foster a culture of collaboration, respect, and shared success." },
-              { icon: FaGraduationCap, title: "Continuous Learning", desc: "Technology evolves rapidly, and so do we. We encourage curiosity, learning, and constant improvement to stay ahead of the curve." },
-              { icon: FaCheckCircle, title: "Ownership & Accountability", desc: "We take full responsibility for the solutions we build and the outcomes we deliver. Every team member acts with ownership, ensuring reliability, quality, and trust." },
-              { icon: FaHeart, title: "Customer-Centric Thinking", desc: "Every decision begins with the customer in mind. We focus on delivering meaningful experiences and long-term value for the organizations we serve." },
-            ].map((value, i) => (
-              <motion.div key={i} className="value-card" variants={cardVariants}>
-                <value.icon className="value-icon" />
-                <h3>{value.title}</h3>
-                <p>{value.desc}</p>
-              </motion.div>
-            ))}
+            <motion.div
+              className="value-card"
+              custom={0}
+              variants={cardVariants}
+            >
+              <FaLightbulb className="value-icon" />
+              <h3>Innovation First</h3>
+              <p>
+                We constantly explore emerging technologies and bold ideas to
+                build solutions that keep our clients ahead in a rapidly
+                evolving digital world.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={1}
+              variants={cardVariants}
+            >
+              <FaShieldAlt className="value-icon" />
+              <h3>Integrity & Trust</h3>
+              <p>
+                Trust is the foundation of every partnership. We operate with
+                transparency, accountability, and honesty in everything we do.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={2}
+              variants={cardVariants}
+            >
+              <FaUsers className="value-icon" />
+              <h3>Client Success</h3>
+              <p>
+                Our success is defined by the success of our clients. We deeply
+                understand their challenges and deliver solutions that create
+                measurable impact.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={3}
+              variants={cardVariants}
+            >
+              <FaRocket className="value-icon" />
+              <h3>Excellence in Execution</h3>
+              <p>
+                We believe great ideas must be backed by flawless execution. Our
+                teams focus on delivering high-quality, scalable, and reliable
+                solutions.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={4}
+              variants={cardVariants}
+            >
+              <FaHandshake className="value-icon" />
+              <h3>Collaboration</h3>
+              <p>
+                The best innovations happen when diverse minds work together. We
+                foster a culture of collaboration, respect, and shared success.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={5}
+              variants={cardVariants}
+            >
+              <FaGraduationCap className="value-icon" />
+              <h3>Continuous Learning</h3>
+              <p>
+                Technology evolves rapidly, and so do we. We encourage
+                curiosity, learning, and constant improvement to stay ahead of
+                the curve.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={6}
+              variants={cardVariants}
+            >
+              <FaCheckCircle className="value-icon" />
+              <h3>Ownership & Accountability</h3>
+              <p>
+                We take full responsibility for the solutions we build and the
+                outcomes we deliver. Every team member acts with ownership,
+                ensuring reliability, quality, and trust.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="value-card"
+              custom={7}
+              variants={cardVariants}
+            >
+              <FaHeart className="value-icon" />
+              <h3>Customer-Centric Thinking</h3>
+              <p>
+                Every decision begins with the customer in mind. We focus on
+                delivering meaningful experiences and long-term value for the
+                organizations we serve.
+              </p>
+            </motion.div>
           </motion.div>
         </div>
+      </div>
 
-        {/* --- CTA Section --- */}
-        <div style={{ position: 'relative', height: '600px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', marginTop: '100px', borderTop: 'none' }}>
-          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
-            <img
-              src="https://images.pexels.com/photos/373893/pexels-photo-373893.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=1"
-              alt="Future City"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              loading="lazy"
-            />
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(15, 23, 42, 0.8)' }}></div>
-          </div>
-
+      {/* --- Original CTA Section --- */}
+      <div
+        style={{
+          position: "relative",
+          height: "600px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 1,
+          }}
+        >
+          <img
+            src="https://i.pinimg.com/1200x/c4/de/a3/c4dea33085f3492af9efae1bfeedc655.jpg"
+            alt="Future City"
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            loading="lazy"
+          />
           <div
             style={{
-              position: "relative",
-              zIndex: 2,
-              textAlign: "center",
-              maxWidth: "800px",
-              padding: "0 20px",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background: "rgba(15, 23, 42, 0.8)",
+            }}
+          ></div>
+        </div>
+
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            textAlign: "center",
+            maxWidth: "800px",
+            padding: "0 20px",
+          }}
+        >
+          <h2
+            style={{
+              fontSize: "4rem",
+              color: "#fff",
+              marginBottom: "30px",
+              letterSpacing: "-0.02em",
+              lineHeight: "1.1",
             }}
           >
-            <h2
-              style={{
-                fontSize: "4rem",
-                color: "#fff",
-                marginBottom: "30px",
-                letterSpacing: "-0.02em",
-                lineHeight: "1.1",
-              }}
-            >
-              Ready to Shape <br /> the Future?
-            </h2>
-            <p
-              style={{
-                fontSize: "1.25rem",
-                color: "#cbd5e1",
-                marginBottom: "50px",
-                lineHeight: "1.6",
-              }}
-            >
-              Join a team that challenges the status quo. Discover your next
-              career breakthrough at Fraylon.
-            </p>
-            <div
-              style={{ display: "flex", gap: "20px", justifyContent: "center" }}
-            >
-              <MotionLink
-                to="/careers"
-                className="btn"
-                whileTap={{ scale: 0.98 }}
-                style={{
-                  background: "#00c6a5",
-                  color: "#0f172a",
-                  padding: "18px 45px",
-                  fontSize: "1rem",
-                  fontWeight: "bold",
-                  border: "none",
-                  borderRadius: "0",
-                  cursor: "pointer",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                  textDecoration: "none",
-                  display: "inline-block",
-                  transition: "background-color 0.3s",
-                }}
-              >
-                View Open Positions
-              </MotionLink>
-              <MotionLink
-                to="/leadership"
-                className="btn-outline"
-                whileTap={{ scale: 0.98 }}
-                style={{
-                  borderColor: "#fff",
-                  color: "#fff",
-                  padding: "16px 45px",
-                  fontSize: "1rem",
-                  fontWeight: "bold",
-                  border: "1px solid #fff",
-                  background: "transparent",
-                  borderRadius: "0",
-                  cursor: "pointer",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                  textDecoration: "none",
-                  display: "inline-block",
-                  transition: "background-color 0.3s",
-                }}
-              >
-                Meet Leadership
-              </MotionLink>
-            </div>
+            Ready to Shape <br /> the Future?
+          </h2>
+          <p
+            style={{
+              fontSize: "1.25rem",
+              color: "#cbd5e1",
+              marginBottom: "50px",
+              lineHeight: "1.6",
+            }}
+          >
+            Join a team that challenges the status quo. Discover your next
+            career breakthrough at Fraylon.
+          </p>
+          <div
+            style={{ display: "flex", gap: "20px", justifyContent: "center" }}
+          >
+            <MotionLink
+  to="/careers"
+  className="btn btn-primary"
+  whileTap={{ scale: 0.98 }}
+>
+  View Open Positions
+</MotionLink>
+            <MotionLink
+  to="/leadership"
+  className="btn btn-primary"
+  whileTap={{ scale: 0.98 }}
+>
+  Meet Leadership
+</MotionLink>
           </div>
         </div>
       </div>

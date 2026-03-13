@@ -1,7 +1,7 @@
 /* About.css */
 
 .about-section {
-  padding: 140px 20px;
+  padding: 100px 20px;
   background: var(--bg-dark-surface);
   color: var(--text-main);
   position: relative;
@@ -90,7 +90,7 @@
 
 .stat-block p {
   font-size: 13px;
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 /* Button */

@@ -123,7 +123,7 @@ const ServiceLayout = ({ data }: { data: ServiceData }) => {
                     <p className="service-subtitle">{data.subtitle}</p>
                     <div className="hero-actions">
                         <Link to="/contact">
-                            <button className="consulting-btn">
+                            <button className="btn btn-primary">
                                 Book Consultation
                                 <FaArrowRight />
                             </button>
@@ -159,7 +159,7 @@ const ServiceLayout = ({ data }: { data: ServiceData }) => {
                 </div>
                 <div className="features-grid">
                     {data.features && data.features.map((feature, index) => (
-                        <div key={index} className="feature-card">
+                        <div key={index} className="feature-card interactive-card">
                             <div className="feature-icon">{getFeatureIcon(feature.icon)}</div>
                             <h4>{feature.title}</h4>
                             <p>{feature.desc}</p>
@@ -242,7 +242,7 @@ const ServiceLayout = ({ data }: { data: ServiceData }) => {
 
             {/* TECH STACK */}
             <section className="service-tech-section">
-                <div className="section-header center-aligned">
+                <div className="section-header ">
                     <h2>Technology Stack</h2>
                     <p>Engineered with the world's most robust technologies.</p>
                 </div>
@@ -257,13 +257,13 @@ const ServiceLayout = ({ data }: { data: ServiceData }) => {
             </section>
 
             {/* FAQ SECTION - Redesigned */}
-            <section className="service-faq-section">
-                <div className="faq-container">
-                    <div className="faq-header-side">
-                        <span className="faq-label">Support</span>
+            <section className="service-faq-section section">
+                <div className="faq-container ">
+                    <div className="faq-header-side ">
+                        <span className="faq-label ">Support</span>
                         <h2>Frequently Asked<br />Questions</h2>
                         <p>Everything you need to know about our services. Can’t find the answer you’re looking for?</p>
-                        <Link to="/contact" className="faq-contact-link">
+                        <Link to="/contact" className="cta-link ">
                             Chat to our team <FaArrowRight />
                         </Link>
                     </div>
@@ -308,7 +308,7 @@ const ServiceLayout = ({ data }: { data: ServiceData }) => {
                     <h2>Ready to get started?</h2>
                     <p>Transform your business with our {data.title} services today.</p>
                     <Link to="/contact">
-                        <button className="consulting-btn">
+                        <button className="btn btn-primary">
                             Get a Quote
                             <FaArrowRight />
                         </button>

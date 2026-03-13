@@ -70,7 +70,7 @@
 }
 
 .partner-item {
-    background: #fff;
+    background: var(--bg-surface);
     height: 240px;
     display: flex;
     flex-direction: column;
@@ -84,7 +84,7 @@
 }
 
 .partner-item:hover {
-    background: #fff;
+    background: var(--bg-surface);
     z-index: 1;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
@@ -228,7 +228,7 @@
 }
 
 .btn-cta:hover {
-    background: #fff;
+    background: var(--bg-surface);
     color: var(--color-brand-black);
     border-color: #fff;
 }

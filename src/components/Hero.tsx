@@ -94,7 +94,7 @@ const Hero = () => {
 
                                 <div className="cta-container">
                                     <Link to={slide.btnLink}>
-                                        <button className="btn-primary-solid">
+                                        <button className="btn btn-primary">
                                             {slide.btnText}
                                             <FaArrowRight className="btn-icon" />
                                         </button>

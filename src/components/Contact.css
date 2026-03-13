@@ -1,10 +1,12 @@
 /* Contact.css */
 .contact-cta-section {
-    padding: 100px 60px;
+    padding: 100px clamp(24px, 5vw, 60px);
     background: var(--bg-surface);
     position: relative;
     overflow: hidden;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .cta-wrapper {

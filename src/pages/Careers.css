@@ -7,7 +7,7 @@
 
 .careers-hero {
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
     position: relative;
     z-index: 1;
 }
@@ -284,4 +284,9 @@
     .process-steps {
         grid-template-columns: 1fr;
     }
+}
+.careers-container {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }

@@ -1,7 +1,7 @@
 /* Industries.css */
 .industries-section {
     padding: 0;
-    background: #fff;
+    background: var(--bg-surface);
     width: 100%;
     position: relative;
     /* overflow: hidden; Removed to prevent cutoff */
@@ -33,7 +33,7 @@
     position: relative;
     height: 100%;
     overflow: hidden;
-    background: #0f172a;
+    background: var(--text-main);
 }
 
 .ind-hero-image-wrapper {
@@ -85,7 +85,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: #fff;
+    background: var(--bg-surface);
 }
 
 .ind-content-inner {
@@ -106,7 +106,7 @@
 .ind-title {
     font-size: 3.5rem;
     font-weight: 800;
-    color: #0f172a;
+    color: var(--text-main);
     line-height: 1.1;
     margin-bottom: 25px;
     font-family: 'Inter', sans-serif;
@@ -195,7 +195,7 @@
 
 .ind-stat-block .stat-lbl {
     font-size: 0.8rem;
-    color: #94a3b8;
+    color: var(--text-muted);
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -203,7 +203,7 @@
 
 /* Right Column: List */
 .ind-list-col {
-    background: #f8fafc;
+    background: var(--bg-surface);
     display: flex;
     flex-direction: column;
     border-left: 1px solid #f1f5f9;
@@ -216,7 +216,7 @@
 .ind-list-header h2 {
     font-size: 2.5rem;
     font-weight: 800;
-    color: #0f172a;
+    color: var(--text-main);
     line-height: 1.1;
     margin: 0;
 }
@@ -240,11 +240,11 @@
 }
 
 .ind-nav-item:hover {
-    background: #fff;
+    background: var(--bg-surface);
 }
 
 .ind-nav-item.active {
-    background: #fff;
+    background: var(--bg-surface);
     border-left: 4px solid #00c6a5;
     /* Teal Indicator */
 }
@@ -279,7 +279,7 @@
 .ind-nav-tagline {
     font-size: 0.7rem;
     text-transform: uppercase;
-    color: #94a3b8;
+    color: var(--text-muted);
     letter-spacing: 0.05em;
     font-weight: 600;
 }
@@ -353,14 +353,14 @@
         display: flex;
         flex-direction: column;
         padding: 40px 20px 0;
-        background: #f8fafc;
+        background: var(--bg-surface);
         order: -1;
     }
 
     .mobile-bento-header h3 {
         font-size: 1.8rem;
         font-weight: 800;
-        color: #0f172a;
+        color: var(--text-main);
         margin-bottom: 20px;
     }
 
@@ -373,7 +373,7 @@
 
     .bento-item {
         position: relative;
-        background: #fff;
+        background: var(--bg-surface);
         border: 1px solid #e2e8f0;
         border-radius: 16px;
         display: flex;
@@ -432,7 +432,7 @@
     }
 
     .bento-item.active {
-        background: #0f172a;
+        background: var(--text-main);
         color: #fff;
     }
 

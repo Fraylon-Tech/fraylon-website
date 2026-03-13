@@ -1,9 +1,15 @@
 /* GlobalImpact.css */
 .impact-section {
-    padding: 120px 0;
+    padding: clamp(80px, 12vw, 120px) 0;
     background: var(--bg-body);
     position: relative;
     border-bottom: 1px solid var(--border-light);
+}
+
+.impact-container-full {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 clamp(24px, 5vw, 60px);
 }
 
 .map-container {
@@ -231,13 +237,7 @@
 
 @media (max-width: 768px) {
     .impact-section {
-        padding: 50px 0;
-    }
-
-    /* Reduced padding so the title fits on screen with the map */
-
-    .impact-container-full {
-        padding: 0 20px !important;
+        padding: 56px 0 64px;
     }
 
     .impact-section .section-title {

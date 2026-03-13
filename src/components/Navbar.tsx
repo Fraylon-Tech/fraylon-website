@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   FaWordpress, FaWix, FaShopify, FaMagento, FaCode, FaBrain, FaTools,
   FaLaptopCode, FaColumns, FaShoppingCart, FaBullhorn, FaSearch,
@@ -23,6 +23,8 @@ const Navbar = () => {
   const [mobileActivePanel, setMobileActivePanel] = useState<string>('main');
   const [mobileSubExpanded, setMobileSubExpanded] = useState<string | null>(null);
   const [panelHistory, setPanelHistory] = useState<string[]>([]);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,6 +72,18 @@ const Navbar = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    closeMenu();
+
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+  };
+
   const renderSubAccordion = (id: string, title: string, links: { to: string, label: string }[]) => {
     const isExpanded = mobileSubExpanded === id;
     return (
@@ -114,7 +128,7 @@ const menuItem = {
       <Link
       to="/"
       className={`logo ${mobileMenuOpen ? "logo-hidden" : ""}`}
-      onClick={closeMenu}
+      onClick={handleLogoClick}
     >
       <div className="logo-icon" />
       FRAYLON

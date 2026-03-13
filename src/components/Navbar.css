@@ -381,25 +381,24 @@
 /* --- MOBILE / RESPONSIVE FIX --- */
 @media (max-width: 991px) {
     .navbar {
-        height: 70px;
-        padding: 0 5vw;
+        height: var(--nav-height);
+        padding: 0 clamp(16px, 4vw, 24px);
         background: rgba(255, 255, 255, 0.98);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
         justify-content: space-between;
-        /* Ensure Space Between Logo and Actions */
         align-items: center;
         flex-wrap: nowrap;
-        /* Prevent wrapping essentially */
     }
 
     .logo {
-        font-size: 1.4rem;
+        font-size: clamp(1.2rem, 4vw, 1.4rem);
         z-index: 1100;
-        /* Above overlay */
     }
 
     .logo-hidden {
-    display: none;
+        display: none;
     }
 
     /* Hide Main Nav Links on Mobile */
@@ -555,9 +554,10 @@
     }
 
     .mobile-menu-content-wrapper {
-    width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
+        width: 100%;
+        padding: 0 clamp(20px, 5vw, 24px) 24px;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
     }
 
     .mobile-menu-content h2 {

@@ -1,7 +1,7 @@
 /* About.css */
 
 .about-section {
-  padding: 100px 20px;
+  padding: clamp(80px, 12vw, 140px) clamp(24px, 5vw, 40px);
   background: var(--bg-dark-surface);
   color: var(--text-main);
   position: relative;
@@ -135,10 +135,9 @@
 /* Tablet */
 
 @media (max-width: 1024px) {
-
   .about-split {
     flex-direction: column;
-    gap: 60px;
+    gap: 48px;
     text-align: center;
   }
 
@@ -147,42 +146,52 @@
   }
 
   .stats-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
 
   .about-image-wrapper {
     width: 100%;
-    height: 420px;
+    max-width: 560px;
+    margin: 0 auto;
+    height: 380px;
   }
 }
 
 /* Mobile */
 
 @media (max-width: 768px) {
-
   .about-section {
-    padding: 90px 20px;
+    padding: 64px 20px 80px;
   }
 
   .about-heading {
-    font-size: 32px;
+    font-size: clamp(1.75rem, 5vw, 2rem);
+    margin-bottom: 20px;
   }
 
   .about-text {
-    font-size: 15px;
+    font-size: 0.95rem;
   }
 
   .stats-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
     text-align: center;
+    margin-top: 28px;
   }
 
   .about-image-wrapper {
-    height: 300px;
+    height: 280px;
+    max-width: 100%;
   }
 
   .about-accent-box {
     display: none;
+  }
+
+  .about-content .btn {
+    width: 100%;
+    justify-content: center;
   }
 }

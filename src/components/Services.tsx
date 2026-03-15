@@ -83,7 +83,9 @@ const ServiceCard = ({ service, index }: { service: ServiceItem, index: number }
   className="service-card-link"
   aria-label={`Learn more about ${service.title}`}
 >
-                <div className="service-icon">{service.icon}</div>
+                <div className="service-icon-wrap">
+                    <span className="service-icon" aria-hidden="true">{service.icon}</span>
+                </div>
                 <div className="service-content">
                     <h3>{service.title}</h3>
                     <p>{service.desc}</p>

@@ -4,15 +4,53 @@ import { motion } from 'framer-motion';
 import { FaBrain, FaCloud, FaShieldAlt, FaDatabase, FaArrowDown } from 'react-icons/fa';
 import './Hero.css';
 
+const SUBCOPY_PHRASES = ['scalable AI', 'cloud', 'cybersecurity'];
+const TYPING_MS = 75;
+const ERASE_MS = 45;
+const HOLD_MS = 2200;
+const PAUSE_BETWEEN_PHRASES_MS = 400;
+
 const Hero = () => {
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
     const [isMoving, setIsMoving] = useState(false);
+    const [phraseIndex, setPhraseIndex] = useState(0);
+    const [typedLength, setTypedLength] = useState(0);
+    const [isErasing, setIsErasing] = useState(false);
 
     useEffect(() => {
         if (!isMoving) return;
         const timeout = setTimeout(() => setIsMoving(false), 150);
         return () => clearTimeout(timeout);
     }, [isMoving, cursorPos]);
+
+    // Rotating typewriter: "We design [scalable AI | cloud | cybersecurity] systems for..."
+    useEffect(() => {
+        const phrase = SUBCOPY_PHRASES[phraseIndex];
+        if (!phrase) return;
+
+        if (!isErasing && typedLength < phrase.length) {
+            const t = setTimeout(() => setTypedLength((n) => n + 1), TYPING_MS);
+            return () => clearTimeout(t);
+        }
+        if (!isErasing && typedLength === phrase.length) {
+            const t = setTimeout(() => {
+                setIsErasing(true);
+                setTypedLength((n) => Math.max(0, n - 1));
+            }, HOLD_MS);
+            return () => clearTimeout(t);
+        }
+        if (isErasing && typedLength > 0) {
+            const t = setTimeout(() => setTypedLength((n) => n - 1), ERASE_MS);
+            return () => clearTimeout(t);
+        }
+        if (isErasing && typedLength === 0) {
+            const t = setTimeout(() => {
+                setIsErasing(false);
+                setPhraseIndex((i) => (i + 1) % SUBCOPY_PHRASES.length);
+            }, PAUSE_BETWEEN_PHRASES_MS);
+            return () => clearTimeout(t);
+        }
+    }, [phraseIndex, typedLength, isErasing]);
 
     return (
         <section
@@ -68,7 +106,14 @@ const Hero = () => {
                             <span className="hero-title-soft">of tomorrow.</span>
                         </h1>
                         <p className="hero-subcopy">
-                            We design scalable AI, cloud, and cybersecurity systems for modern enterprises building the next generation of digital products.
+                            We design{' '}
+                            <span className="hero-subcopy-typed">
+                                {SUBCOPY_PHRASES[phraseIndex].slice(0, typedLength)}
+                                {!isErasing && typedLength < SUBCOPY_PHRASES[phraseIndex].length && (
+                                    <span className="hero-typing-cursor hero-subcopy-cursor" aria-hidden="true" />
+                                )}
+                            </span>
+                            {' '}systems for modern enterprises building the next generation of digital products.
                         </p>
 
                         <div className="hero-cta-row">

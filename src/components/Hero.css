@@ -118,6 +118,17 @@
     color: #64748b;
 }
 
+.hero-subcopy-typed {
+    color: #14b8a6;
+    font-weight: 600;
+}
+
+.hero-subcopy-cursor {
+    height: 0.85em;
+    margin-left: 1px;
+    background: #14b8a6;
+}
+
 .hero-cta-row {
     display: flex;
     flex-wrap: wrap;

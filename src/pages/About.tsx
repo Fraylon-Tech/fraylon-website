@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { useRef } from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CountUp from "react-countup";
@@ -105,31 +104,7 @@ const nextSlide = () => {
 const prevSlide = () => {
   setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 };
-const textContainer: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
 
-const textReveal: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-    filter: "blur(8px)",
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.7,
-      ease: "easeOut",
-    },
-  },
-};
 const missionText = [
   "Empower",
   "organizations",

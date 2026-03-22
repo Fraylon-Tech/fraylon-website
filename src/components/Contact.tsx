@@ -8,20 +8,20 @@ const Contact = () => {
             <div className="cta-bg-graphic"></div>
             <div className="cta-wrapper">
                 <div className="cta-content">
-                    <h2>Ready to Scale?</h2>
+                    <h2>Ready to Build What&apos;s Next?</h2>
                     <p>
-                        Let's discuss how Fraylon can accelerate your digital transformation journey with speed and precision.
+                        Partner with Fraylon to design, build, and scale the digital infrastructure powering tomorrow&apos;s technology.
                     </p>
                 </div>
                 <div className="cta-actions">
-                    <Link to="/partners">
+                    <Link to="/contact">
                         <button className="btn btn-primary">
-                            Partner With Us
+                            Start a Project
                         </button>
                     </Link>
                     <Link to="/contact">
                         <button className="btn btn-outline">
-                            Contact Sales <FaArrowRight className="btn-icon-right" />
+                            Contact Us <FaArrowRight className="btn-icon-right" />
                         </button>
                     </Link>
                 </div>

@@ -4,6 +4,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import SmoothScroll from './components/SmoothScroll';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ArticleDetail from "./pages/ArticleDetail";
 import CookieConsent from './components/CookieConsent';
 import './App.css';
 
@@ -131,6 +132,7 @@ function App() {
             <Suspense fallback={<PageLoading />}>
               <Routes location={location}>
                 <Route path="/" element={<Home />} />
+                <Route path="/about/article/:id" element={<ArticleDetail />} />
                 <Route path="/insights" element={<Insights />} />
                 <Route path="/insights/:id" element={<InsightDetail />} />
                 <Route path="/careers" element={<Careers />} />

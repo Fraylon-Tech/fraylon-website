@@ -17,42 +17,42 @@ const services: ServiceItem[] = [
     {
         icon: <FaCloud />,
         title: "Cloud Infrastructure",
-        desc: "Scalable, secure, and resilient cloud architectures designed for the enterprise.",
+        desc: "Design and deploy cloud-native infrastructure built for reliability and scale. We help organizations modernize platforms using resilient architectures across modern cloud environments.",
         image: "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         link: "/services/digital-transformation"
     },
     {
         icon: <FaBrain />,
         title: "Artificial Intelligence",
-        desc: "Deploying generative AI agents to automate complex workflows and decision making.",
+        desc: "Build intelligent systems powered by machine learning and advanced data models. Our AI solutions enable automation, predictive insights, and smarter decision-making.",
         image: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         link: "/services/ai-integration"
     },
     {
         icon: <FaCode />,
         title: "Digital Engineering",
-        desc: "End-to-end software development that modernizes legacy systems.",
+        desc: "Develop high-performance applications using modern engineering practices and scalable architectures. We build robust systems designed for performance and long-term evolution.",
         image: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         link: "/services/software-dev"
     },
     {
         icon: <FaShieldAlt />,
-        title: "Cyber Security",
-        desc: "Zero-trust security frameworks protecting your most critical digital assets.",
+        title: "Cybersecurity",
+        desc: "Secure digital infrastructure with proactive threat protection, resilient architecture, and continuous monitoring to safeguard critical systems and sensitive data.",
         image: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         link: "/services/tech-consulting"
     },
     {
         icon: <FaChartLine />,
         title: "Data & Analytics",
-        desc: "Turning raw data into actionable strategic insights via advanced pipelines.",
+        desc: "Transform data into meaningful insights through scalable data platforms, advanced analytics pipelines, and intelligent reporting systems.",
         image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         link: "/solutions/data"
     },
     {
         icon: <FaMobileAlt />,
         title: "Enterprise Mobility",
-        desc: "Seamless mobile experiences for your workforce and customers.",
+        desc: "Create seamless mobile and cross-platform experiences that connect users, systems, and services across modern digital ecosystems.",
         image: "https://images.pexels.com/photos/4065876/pexels-photo-4065876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         link: "/services/native-app"
     }
@@ -125,7 +125,7 @@ const Services = () => {
                         <h2 className="section-title">End-to-End <br /> Digital Capabilities</h2>
                     </div>
                     <p className="section-desc">
-                        We deliver a comprehensive suite of services to help you navigate the complexities of the digital age.
+                        Fraylon delivers integrated technology solutions across cloud infrastructure, artificial intelligence, cybersecurity, and digital engineering. Our systems are designed for scale, resilience, and long-term growth.
                     </p>
                 </div>
             </div>

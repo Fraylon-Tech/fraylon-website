@@ -17,10 +17,7 @@ const About = () => {
                     <span className="about-label">WHO WE ARE</span>
                     <h2 className="about-heading">Architects of the <br /> Digital Future</h2>
                     <p className="about-text">
-                        Fraylon Technologies is a global leader in next-generation digital services and consulting. We enable clients in more than 20 countries to navigate their digital transformation.
-                    </p>
-                    <p className="about-text">
-                        With over three decades of experience in managing the systems and workings of global enterprises, we expertly steer our clients through their digital journey. We do it by enabling the enterprise with an AI-powered core that helps prioritize the execution of change.
+                        Fraylon builds the infrastructure that powers modern digital systems. By combining advanced engineering with scalable cloud and AI technologies, we help organizations innovate faster, operate securely, and scale confidently in an evolving digital world.
                     </p>
 
                     <div className="stats-grid">

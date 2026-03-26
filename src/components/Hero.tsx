@@ -5,7 +5,7 @@ import { FaBrain, FaCloud, FaShieldAlt, FaDatabase, FaArrowDown } from 'react-ic
 import './Hero.css';
 
 const SUBCOPY_PHRASES = ['scalable AI', 'cloud', 'cybersecurity'];
-const TYPING_MS = 75;
+const TYPING_MS = 58;
 const ERASE_MS = 45;
 const HOLD_MS = 2200;
 const PAUSE_BETWEEN_PHRASES_MS = 400;
@@ -23,7 +23,6 @@ const Hero = () => {
         return () => clearTimeout(timeout);
     }, [isMoving, cursorPos]);
 
-    // Rotating typewriter: "We design [scalable AI | cloud | cybersecurity] systems for..."
     useEffect(() => {
         const phrase = SUBCOPY_PHRASES[phraseIndex];
         if (!phrase) return;
@@ -96,34 +95,64 @@ const Hero = () => {
             {/* Content & layout */}
             <div className="hero-digital-inner">
                 <div className="hero-layout">
-                    <div>
-                        <p className="hero-kicker">FRAYLON</p>
-                        <h1 className="hero-title">
+                    <div className="hero-copy-column">
+                        <motion.p
+                            className="hero-kicker"
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                            <span className="hero-kicker-dot" aria-hidden="true" />
+                            FRAYLON
+                        </motion.p>
+                        <motion.h1
+                            className="hero-title"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.65, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+                        >
                             Engineering the digital
                             <br />
                             <span className="hero-title-emphasis">INFRASTRUCTURE</span>
                             <br />
                             <span className="hero-title-soft">of tomorrow.</span>
-                        </h1>
-                        <p className="hero-subcopy">
-                            We design{' '}
-                            <span className="hero-subcopy-typed">
-                                {SUBCOPY_PHRASES[phraseIndex].slice(0, typedLength)}
-                                {!isErasing && typedLength < SUBCOPY_PHRASES[phraseIndex].length && (
-                                    <span className="hero-typing-cursor hero-subcopy-cursor" aria-hidden="true" />
-                                )}
-                            </span>
-                            {' '}systems for modern enterprises building the next generation of digital products.
-                        </p>
+                        </motion.h1>
 
-                        <div className="hero-cta-row">
+                        <motion.div
+                            className="hero-subcopy-wrap"
+                            initial={{ opacity: 0, y: 16 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                            <p className="hero-typing-row" aria-live="polite">
+                                <span className="hero-typing-prefix">We design </span>
+                                <span className="hero-typing-showcase">
+                                    <span className="hero-subcopy-typed">
+                                        {SUBCOPY_PHRASES[phraseIndex].slice(0, typedLength)}
+                                        {!isErasing && typedLength < SUBCOPY_PHRASES[phraseIndex].length && (
+                                            <span className="hero-typing-cursor hero-typing-cursor--large" aria-hidden="true" />
+                                        )}
+                                    </span>
+                                </span>
+                            </p>
+                            <p className="hero-subcopy-tail">
+                                systems for modern enterprises building the next generation of digital products.
+                            </p>
+                        </motion.div>
+
+                        <motion.div
+                            className="hero-cta-row"
+                            initial={{ opacity: 0, y: 14 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.55, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                        >
                             <Link to="/solutions">
-                                <button className="btn-primary-solid">Explore capabilities</button>
+                                <button className="btn-primary-solid btn-primary-solid--hero">Explore capabilities</button>
                             </Link>
                             <Link to="/contact">
                                 <button className="btn-outline-ghost">Start a project</button>
                             </Link>
-                        </div>
+                        </motion.div>
 
                         <div className="hero-meta">
                             <span>
@@ -151,9 +180,9 @@ const Hero = () => {
 
                     <motion.div
                         className="hero-visual"
-                        initial={{ opacity: 0, y: 24 }}
+                        initial={{ opacity: 0, y: 28 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.85, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <div className="hero-visual-card">
                             <div className="hero-visual-tag">LIVE SYSTEM VIEW</div>

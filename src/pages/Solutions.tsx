@@ -70,16 +70,7 @@ const Solutions = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollToSection = (id: string) => {
-        if (id === 'overview') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-        }
-        setActiveSection(id);
-    };
-
-
+    
 
     // Tech Stack Icon Mapping with Brand Colors
     const techIconMap: Record<string, { icon?: IconType, image?: string, color: string }> = {
@@ -193,20 +184,84 @@ const Solutions = () => {
 
                     {/* Premium Tab Navigation */}
                     <div className="solution-inner-nav">
-                        <nav className="inner-nav-container">
-                            <button onClick={() => scrollToSection('overview')} className={`inner-nav-link ${activeSection === 'overview' ? 'active' : ''}`}>Overview</button>
-                            <button onClick={() => scrollToSection('tech-stack')} className={`inner-nav-link ${activeSection === 'tech-stack' ? 'active' : ''}`}>Stack</button>
-                            <button onClick={() => scrollToSection('challenge')} className={`inner-nav-link ${activeSection === 'challenge' ? 'active' : ''}`}>Challenge</button>
-                            <button onClick={() => scrollToSection('architecture')} className={`inner-nav-link ${activeSection === 'architecture' ? 'active' : ''}`}>Blueprint</button>
-                            <button onClick={() => scrollToSection('capabilities')} className={`inner-nav-link ${activeSection === 'capabilities' ? 'active' : ''}`}>Capabilities</button>
-                            {solution.detailedFeatures && (
-                                <button onClick={() => scrollToSection('detailed-features')} className={`inner-nav-link ${activeSection === 'detailed-features' ? 'active' : ''}`}>Modules</button>
-                            )}
-                            <button onClick={() => scrollToSection('process')} className={`inner-nav-link ${activeSection === 'process' ? 'active' : ''}`}>Process</button>
-                            <button onClick={() => scrollToSection('case-studies')} className={`inner-nav-link ${activeSection === 'case-studies' ? 'active' : ''}`}>Results</button>
-                            <button onClick={() => scrollToSection('faq')} className={`inner-nav-link ${activeSection === 'faq' ? 'active' : ''}`}>FAQ</button>
-                        </nav>
-                    </div>
+  <nav className="inner-nav-container">
+
+    <button
+      type="button"
+      onClick={() => document.getElementById('overview')?.scrollIntoView({ behavior: "smooth" })}
+      className={`inner-nav-link ${activeSection === 'overview' ? 'active' : ''}`}
+    >
+      Overview
+    </button>
+
+    <button
+      type="button"
+      onClick={() => document.getElementById('tech-stack')?.scrollIntoView({ behavior: "smooth" })}
+      className={`inner-nav-link ${activeSection === 'tech-stack' ? 'active' : ''}`}
+    >
+      Stack
+    </button>
+
+    <button
+      type="button"
+      onClick={() => document.getElementById('challenge')?.scrollIntoView({ behavior: "smooth" })}
+      className={`inner-nav-link ${activeSection === 'challenge' ? 'active' : ''}`}
+    >
+      Challenge
+    </button>
+
+    <button
+      type="button"
+      onClick={() => document.getElementById('architecture')?.scrollIntoView({ behavior: "smooth" })}
+      className={`inner-nav-link ${activeSection === 'architecture' ? 'active' : ''}`}
+    >
+      Blueprint
+    </button>
+
+    <button
+      type="button"
+      onClick={() => document.getElementById('capabilities')?.scrollIntoView({ behavior: "smooth" })}
+      className={`inner-nav-link ${activeSection === 'capabilities' ? 'active' : ''}`}
+    >
+      Capabilities
+    </button>
+
+    {solution.detailedFeatures && (
+      <button
+        type="button"
+        onClick={() => document.getElementById('detailed-features')?.scrollIntoView({ behavior: "smooth" })}
+        className={`inner-nav-link ${activeSection === 'detailed-features' ? 'active' : ''}`}
+      >
+        Modules
+      </button>
+    )}
+
+    <button
+      type="button"
+      onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: "smooth" })}
+      className={`inner-nav-link ${activeSection === 'process' ? 'active' : ''}`}
+    >
+      Process
+    </button>
+
+    <button
+      type="button"
+      onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: "smooth" })}
+      className={`inner-nav-link ${activeSection === 'case-studies' ? 'active' : ''}`}
+    >
+      Results
+    </button>
+
+    <button
+      type="button"
+      onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: "smooth" })}
+      className={`inner-nav-link ${activeSection === 'faq' ? 'active' : ''}`}
+    >
+      FAQ
+    </button>
+
+  </nav>
+</div>
                     <div id="tech-stack" className="solution-section tech-stack-section">
                         <h2 style={{ fontSize: '1.2rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Orchestrated Technology</h2>
                         <div className="tech-grid">
@@ -426,7 +481,7 @@ const Solutions = () => {
             /* List View */
             <>
                 <div className="solutions-header container">
-                    <h1 className="page-title">Services & Solutions</h1>
+                    <h1 className="section-title">Services & Solutions</h1>
                     <p className="page-subtitle">
                         We build systems that matter. From cloud migration to predictive AI, we deliver engineering excellence.
                     </p>
@@ -446,7 +501,7 @@ const Solutions = () => {
                                     <Icon className="solution-icon" />
                                     <h3>{data.title}</h3>
                                     <p>{data.description}</p>
-                                    <img src={`https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=200&auto=format&fit=crop`} alt={data.title} className="solution-bg-image" loading='lazy'/>
+                                    {/* <img src={`https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=200&auto=format&fit=crop`} alt={data.title} className="solution-bg-image" loading='lazy'/> */}
                                 </motion.div>
                             </Link>
                         );

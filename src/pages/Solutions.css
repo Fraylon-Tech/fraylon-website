@@ -1,6 +1,6 @@
 /* Existing Styles... */
 .solutions-page {
-    padding-top: calc(var(--nav-height) + 40px);
+    padding-top: 120px;
     padding-bottom: 80px;
 }
 
@@ -8,10 +8,12 @@
 .solutions-header {
     text-align: center;
     margin-bottom: 80px;
+    margin-top: 100px;   /* ✅ ADD THIS */
 }
 
 .page-title {
-    font-size: 4rem;
+    font-size: (3rem, 6vw, 5rem);
+    color: var(--text-main);
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 20px;
@@ -31,11 +33,11 @@
 }
 
 .solutions-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    position: relative;
-    /* Fix for framer-motion scroll calculations */
+  display: grid;
+  padding: 0 24px;  
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;   /* reduced from 30 */
+  margin-bottom: 80px;
 }
 
 .solution-card-link {
@@ -44,22 +46,21 @@
 }
 
 .solution-card {
-    background: var(--bg-surface);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 40px;
-    border-radius: 12px;
-    height: 100%;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    opacity: 0;
-    /* Base state to match Framer's initial */
-    will-change: opacity, transform;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  padding: 30px;                 /* 🔥 reduced from 40 */
+  border-radius: 10px;           /* slightly tighter */
+  height: 100%;
+
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .solution-card:hover {
-    border-color: var(--color-primary);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);   /* subtle lift */
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
 .solution-icon,
@@ -69,39 +70,29 @@
     z-index: 2;
     transition: color 0.3s ease;
 }
-
-.solution-card:hover .solution-icon,
-.solution-card:hover h3,
-.solution-card:hover p {
-    color: #fff !important;
+.solution-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-.solution-bg-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transform: none;
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    pointer-events: none;
-    z-index: 1;
-    filter: brightness(0.4);
-    will-change: transform, opacity;
-    /* Promote to GPU layer */
+.solution-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-.solution-card:hover .solution-bg-image {
-    opacity: 1;
+
+.solution-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  color: var(--color-primary);
 }
 
 /* Detail Mode (Specific Solution) */
 .solution-detail-container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 clamp(24px, 6vw, 64px);  
 }
 
 .solution-breadcrumbs {

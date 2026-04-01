@@ -262,16 +262,11 @@ const About = () => {
                 <span className="mission-tag">Our Mission</span>
 
                 <motion.p
-                  className="mission-text"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={{
-                    visible: {
-                      transition: { staggerChildren: 0.08 },
-                    },
-                  }}
-                >
+  className="mission-text"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+>
                   {missionText.map((word, i) => (
                     <motion.span
                       key={i}

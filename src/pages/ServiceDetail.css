@@ -291,7 +291,7 @@
 
 /* --- TECH STACK --- */
 .service-tech-section {
-    padding: 100px 5vw;
+    padding: clamp(48px, 6vw, 72px) 5vw;
     background: var(--bg-body);
     position: relative;
     overflow: hidden;
@@ -299,10 +299,7 @@
 
 .center-aligned {
     text-align: center;
-    margin: 0 auto 60px;
-    /* Ensure the container itself is centered */
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 32px;
 }
 
 .center-aligned p {

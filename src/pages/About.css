@@ -867,7 +867,12 @@ pointer-events: auto;
 .stat-number {
   font-size: clamp(3.5rem, 4vw, 4.8rem);
   font-weight: 800;
-  color: #ffffff;
+  background: linear-gradient(90deg, #00bfb3, #ffffff);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;  
   margin-bottom: 10px;
 
   letter-spacing: -0.02em;

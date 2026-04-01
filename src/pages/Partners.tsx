@@ -7,6 +7,7 @@ import {
     SiSlack, SiHubspot, SiFigma, SiVercel
 } from 'react-icons/si';
 import './Partners.css';
+import { Link } from 'react-router-dom';
 
 const Partners = () => {
     const partners = [
@@ -103,9 +104,9 @@ const Partners = () => {
                             <p className="cta-text">
                                 Join our ecosystem of innovators. Let's combine our strengths to build the future of enterprise technology together.
                             </p>
-                            <button className="btn-cta">
-                                Apply Now <FaArrowRight />
-                            </button>
+                            <Link to="/contact" className="btn btn-secondary cta-button">
+  Apply Now <FaArrowRight />
+</Link>
                         </div>
                     </motion.div>
                 </div>

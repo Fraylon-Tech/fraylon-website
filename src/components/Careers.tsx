@@ -15,7 +15,7 @@ const Careers = () => {
                     viewport={{ once: true }}
                 >
                     <span className="section-label">JOIN US</span>
-                    <h2>Be The Change <br /> You Want To Code.</h2>
+                    <h2 className="section-title">Be The Change <br /> You Want To Code.</h2>
                     <p>
                         At Fraylon, we don't just write code; we architect the future. Join a team of visionaries, engineers, and creators who are redefining the boundaries of possibility.
                     </p>

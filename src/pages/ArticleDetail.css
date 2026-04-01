@@ -26,7 +26,7 @@
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(15, 23, 42, 0.75) 0%,   /* strong left */
+    rgba(15, 23, 42, 0.75) 0%, 
     rgba(15, 23, 42, 0.5) 30%,
     rgba(15, 23, 42, 0.2) 60%,
     transparent 100%
@@ -77,16 +77,15 @@
 
   max-width: 820px;
 
-  /* 🔥 clean layout */
   margin-left: 120px;
-  padding: 0;   /* remove box feel */
+  padding: 0;   
 
   text-align: left;
 }
 
 /* TEXT */
 .hero-content h1 {
-  font-size: clamp(3.5rem, 7vw, 5.8rem); /* 🔥 BIG upgrade */
+  font-size: clamp(3.5rem, 7vw, 5.8rem); 
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -0.03em;
@@ -94,8 +93,6 @@
 
   
 }
-
-
 
 .hero-desc {
   font-size: 1.2rem;
@@ -207,10 +204,10 @@
 /* MAIN LAYOUT */
 .article-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px; /* tighter sidebar */
-  gap: 24px; /* 🔥 perfect spacing like screenshot */
+  grid-template-columns: minmax(0, 1fr) 280px; 
+  gap: 24px;
 
-  max-width: 1000px; /* 🔥 reduce width */
+  max-width: 1000px;
   margin: 0 auto;
   
 }
@@ -227,9 +224,8 @@
 
   height: fit-content;
 }
-/* ========================= */
-/* 🔥 UNIFIED SIDEBAR CARDS */
-/* ========================= */
+
+/* UNIFIED SIDEBAR CARDS */
 
 .sidebar-author,
 .takeaways-card,
@@ -250,7 +246,7 @@
   transform: translateY(-2px);
 }
 
-/* 🔥 ALL HEADINGS SAME */
+/* ALL HEADINGS SAME */
 .sidebar-author h4,
 .takeaways-card h4,
 .share-card h4 {
@@ -334,12 +330,12 @@
 }
 /* CONTENT */
 .article-text {
-  max-width: 680px; /* 🔥 IMPORTANT */
+  max-width: 680px; 
   font-size: 1.05rem;
   line-height: 1.85;
   color: var(--text-secondary);
   grid-template-columns: 0.95fr 300px;
-  justify-self: start;   /* 🔥 ensures it hugs left inside its column */
+  justify-self: start;  
   margin-left: -150px;  
   
 }
@@ -352,7 +348,7 @@
   color: var(--color-brand-navy);
 }
 .article-text h3 {
-  font-size: 1.8rem; /* 🔥 bigger */
+  font-size: 1.8rem; 
   font-weight: 700;
   margin-top: 40px;
   margin-bottom: 12px;
@@ -599,7 +595,7 @@
 }
 @media (max-width: 768px) {
   .article-layout {
-    grid-template-columns: 1fr; /* 🔥 stack layout */
+    grid-template-columns: 1fr; 
     gap: 30px;
   }
 
@@ -621,10 +617,11 @@
 }
 @media (max-width: 768px) {
   .article-text {
-    margin-left: 0; /* 🔥 fix mobile break */
+    margin-left: 0; 
   }
 
   .article-text {
     font-size: 1rem;
   }
 }
+

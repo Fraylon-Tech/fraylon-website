@@ -3,6 +3,7 @@ export const aboutArticles = [
     id: "innovation-culture",
     category: "Our Culture",
     title: "Building a Culture of Innovation",
+    shortTitle: "Innovation",
     description:
       "Organizations that sustain innovation do so by aligning leadership, enabling experimentation, and embedding structured thinking into everyday workflows.",
 
@@ -51,6 +52,7 @@ export const aboutArticles = [
     id: "long-term-vision",
     category: "Our Vision",
     title: "Engineering with Long-Term Vision",
+    shortTitle: "Long-Term Vision",
     description:
       "Engineering systems must be designed to scale, adapt, and evolve without requiring continuous rework or increasing operational complexity.",
 
@@ -99,6 +101,7 @@ export const aboutArticles = [
     id: "ownership",
     category: "Our Values",
     title: "Ownership Drives Excellence",
+    shortTitle: "Ownership",
     description:
       "A culture of ownership ensures accountability, improves execution, and strengthens trust across teams and stakeholders.",
 
@@ -147,6 +150,7 @@ export const aboutArticles = [
     id: "real-impact",
     category: "Our Approach",
     title: "Designing for Real-World Impact",
+    shortTitle: "Real-World Impact",
     description:
       "Solutions create value only when they are aligned with real-world needs and deliver measurable business outcomes.",
 
@@ -194,6 +198,7 @@ export const aboutArticles = [
   id: "collaboration",
   category: "Our Culture",
   title: "Collaboration as a Competitive Advantage",
+  shortTitle: "Collaboration",
   description:
     "High-performing organizations build collaborative environments where cross-functional teams align seamlessly to deliver consistent and scalable outcomes.",
 
@@ -241,6 +246,7 @@ export const aboutArticles = [
   id: "adaptability",
   category: "Our Approach",
   title: "Adaptability in a Changing Landscape",
+  shortTitle: "Adaptability",
   description:
     "Organizations that succeed in dynamic environments are those that continuously adapt, learn, and evolve their strategies to remain relevant and competitive.",
 

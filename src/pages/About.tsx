@@ -468,7 +468,7 @@ const About = () => {
                 className={`menu-item ${activeIndex === index ? "active" : ""}`}
                 onMouseEnter={() => setActiveIndex(index)}
               >
-                {article.title}
+                {isMobile ? article.shortTitle : article.title}
               </div>
             ))}
           </div>
@@ -491,7 +491,7 @@ const About = () => {
                 navigate(`/about/article/${aboutArticles[activeIndex].id}`)
               }
             >
-              Explore Idea
+              Explore Idea →
             </button>
 
             <div className="article-image">

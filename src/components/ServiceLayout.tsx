@@ -263,9 +263,20 @@ const ServiceLayout = ({ data }: { data: ServiceData }) => {
                         <span className="faq-label ">Support</span>
                         <h2>Frequently Asked<br />Questions</h2>
                         <p>Everything you need to know about our services. Can’t find the answer you’re looking for?</p>
-                        <Link to="/contact" className="cta-link ">
-                            Chat to our team <FaArrowRight />
-                        </Link>
+                        <Link
+  to="/contact"
+  style={{
+    color: "var(--color-primary)",
+    fontWeight: 600,
+    textDecoration: "none",
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "8px",
+    transition: "all 0.3s ease",
+  }}
+>
+  Chat to our team <FaArrowRight />
+</Link>
                     </div>
 
                     <div className="faq-list-side">

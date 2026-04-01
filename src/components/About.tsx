@@ -14,7 +14,7 @@ const About = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    <span className="about-label">WHO WE ARE</span>
+                    <span className="section-label">WHO WE ARE</span>
                     <h2 className="about-heading">Architects of the <br /> Digital Future</h2>
                     <p className="about-text">
                         Fraylon builds the infrastructure that powers modern digital systems. By combining advanced engineering with scalable cloud and AI technologies, we help organizations innovate faster, operate securely, and scale confidently in an evolving digital world.

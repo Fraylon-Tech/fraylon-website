@@ -133,7 +133,7 @@ const Leadership = () => {
             transition={{ duration: 1 }}
           >
 
-            <div className="quote-icon">“</div>
+            
 
             <h2 className="philosophy-text">
               True leadership is not about being in charge.

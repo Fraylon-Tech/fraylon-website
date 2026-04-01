@@ -17,7 +17,7 @@ const Industries = () => {
             <div className="industries-mobile">
                 <div className="ind-mobile-header">
                     <span className="ind-overline">Industries</span>
-                    <h2 className="ind-mobile-title">End-to-End Domain Reach</h2>
+                    <h2 className="section-title">End-to-End Domain Reach</h2>
                 </div>
                 <div className="ind-mobile-pills">
                     {displayKeys.map((key) => {

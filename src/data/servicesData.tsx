@@ -73,7 +73,7 @@ export const servicesData: Record<string, ServiceData> = {
             {
                 title: 'Vogue Archive',
                 desc: 'Digitizing 100 years of fashion history into a searchable, subscription-based archive.',
-                image: 'https://images.pexels.com/photos/1509428/pexels-photo-1509428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                image: 'https://images.pexels.com/photos/6045028/pexels-photo-6045028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
                 tags: ['Membership', 'Archives', 'Search'],
                 link: '/work/vogue'
             }

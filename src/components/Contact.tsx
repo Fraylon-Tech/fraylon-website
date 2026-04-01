@@ -8,7 +8,7 @@ const Contact = () => {
             <div className="cta-bg-graphic"></div>
             <div className="cta-wrapper">
                 <div className="cta-content">
-                    <h2>Ready to Build What&apos;s Next?</h2>
+                    <h2 className="section-title">Ready to Build What&apos;s Next?</h2>
                     <p>
                         Partner with Fraylon to design, build, and scale the digital infrastructure powering tomorrow&apos;s technology.
                     </p>

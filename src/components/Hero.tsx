@@ -146,7 +146,7 @@ const Hero = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.55, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            <Link to="/solutions">
+                            <Link to="/Solutions">
                                 <button className="btn-primary-solid btn-primary-solid--hero">Explore capabilities</button>
                             </Link>
                             <Link to="/contact">

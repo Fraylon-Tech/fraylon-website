@@ -47,7 +47,7 @@ const Careers = () => {
             <div className="culture-section">
                 <div className="section-header">
                     <h2 className="section-title">Why Join Us?</h2>
-                    <p style={{ color: 'var(--text-muted)', maxWidth: '600px' }}>
+                    <p style={{ color: 'var(--text-muted)', maxWidth: '600px', textAlign: 'center', margin: '0 auto' }}>
                         We don't just offer a job; we offer a platform for you to do the best work of your life.
                     </p>
                 </div>
